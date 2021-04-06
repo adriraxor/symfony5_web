@@ -1,0 +1,53 @@
+{% extends 'panier.base.twig' %}
+
+{% block body %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Navigation</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                        <a class="nav-link" href=" {{ path('accueil') }}">Page d'accueil</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href=" {{ path('produit_index') }}">Voir les produits</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{ path('panier') }}">Mon panier</a>
+                                </li>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="">Espace administrateur</a>
+                                        </li>
+                                {% endif %}
+                                {% if is_granted('ROLE_AGENT') %}
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="">Espace agent</a>
+                                        </li>
+                                {% endif %}
+                                {% if is_granted('ROLE_USER') %}
+                                        {% if app.user %}
+                                                <li class="nav-item">
+                                                        <a class="nav-link" href="">Espace client</a>
+                                                </li>
+                                        {% endif %}
+                                {% endif %}
+                                {% if is_granted('ROLE_USER') %}
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                                        </li>
+                                {% else %}
+                                        <li class="nav-item">
+                                                <a class="nav-link" href=" {{ path('app_login') }}">Authentification</a>
+                                        </li>
+                                {% endif %}
+                        </ul>
+                </div>
+        </nav>
+        <h1>Merci d'avoir effectué votre achat : {{ user }}</h1>
+
+        <h3>Votre achat à bien été effectué</h3>
+{% endblock %}

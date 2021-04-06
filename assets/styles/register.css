@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
+
+
+body{
+    font-family: 'Patua One', cursive;
+
+}
+
+/**
+    Effet sur les boutons
+ */
+a.btn:hover {
+    transform: translateY(5px);
+    transition: 0.8s;
+}
+
+.nav-link:hover {
+    transform: translateY(5px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    transition: 0.5s;
+}

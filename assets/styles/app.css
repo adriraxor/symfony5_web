@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
+
+
+body {
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    font-family: 'Patua One', cursive;
+
+}
+
+/* Surcharge bootstrap et modif classique sur des balises*/
+.nav-link:hover { /* Modif sur la navbar, effet de survol sur les liens */
+    transform: translateY(5px);
+    transition: 0.5s;
+}
+
+.col-md-4 {
+    max-width: 23.333333%;
+}
+
+h4 {
+    color: #848484;
+}
+
+.h3, h3 {
+    font-size: 1.75rem;
+    margin-left: 35%;
+}
+
+.col-md-4 {
+    max-width: 129.333333%;
+}
+
+#bannière_jeu_tendance{
+    max-width: max-content;
+    max-height: 335px;
+}
+

@@ -1,0 +1,30 @@
+{% extends 'panier.base.twig' %}
+
+{% block body %}
+    {% if items | length > 0 %}
+        <h1>Voici votre facture n° {{ uuid }} </h1>
+        {% for item in items %}
+            <div class="container">
+                {{ item.produit.nomProduit }} &nbsp; |
+                {{ item.produit.libelle }} &nbsp; |
+                ({{ item.quantity }} &nbsp; *
+                {{ item.produit.tarifProduit }}€ &nbsp;) ->
+                {{ item.produit.tarifProduit * item.quantity }} €
+                <br>
+                <hr style="size: 1px;">
+            </div>
+
+        {% endfor %}
+        <div class="info-client">
+            <h3>Information du client :</h3><br>
+            <p><b>Adresse email </b> : {{ user.email }}</p>
+            <p><b>Nom </b> : {{ user.nom}} </p>
+            <p><b>Prénom </b> : {{ user.prenom }}</p>
+            <p><b>Numéro de téléphone  </b>: {{ user.numTel }}</p>
+        </div>
+
+        <h1>Total de la facture : {{ total }} € (le {{ date }}</h1>
+    {% else %}
+        <h3>Votre panier est vide</h3>
+    {% endif %}
+{% endblock %}

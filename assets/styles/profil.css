@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
+
+body{
+    font-family: 'Patua One', cursive;
+}
+
+#bannière_profil {
+    max-width: max-content;
+    max-height: 335px;
+}
+/**
+    Effet sur les boutons
+ */
+a.btn:hover {
+    transform: translateY(5px);
+    transition: 0.8s;
+}
+
+.nav-link:hover {
+    transform: translateY(5px);
+    transition: 0.8s;
+}

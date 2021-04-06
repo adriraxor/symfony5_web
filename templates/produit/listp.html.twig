@@ -1,0 +1,100 @@
+{% extends 'panier.base.twig' %}
+
+
+{% block title %}Boutique - RaxorShop{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navigation</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ path('accueil') }}">Page d'accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ path('produit_index') }}">Voir les produits</a>
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Espace administrateur</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_AGENT') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Espace agent</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Espace client</a>
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('panier') }}">Mon panier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ path('app_login') }}">Authentification</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="example-wrapper">
+        <h1>Bonjour! Voici votre panier ✅:</h1>
+
+        {% if items | length > 0 %}
+            <table class="table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Produit</th>
+                <th>Libelle</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total Prix Produit</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.produit.image }}</td>
+                    <td>{{ item.produit.nomProduit }}</td>
+                    <td>{{ item.produit.libelle }}</td>
+                    <td>{{ item.produit.tarifProduit }}€</td>
+                    <td>
+                        <a href="{{ path('panier_moins', {id: item.produit.idProduit}) }}" class="btn btn-danger btn-sm">-</a>
+                        {{ item.quantity }}&nbsp<a href="{{ path('panier_plus', {id: item.produit.idProduit}) }}" class="btn btn-danger btn-sm">+</a>
+                    </td>
+                    <td>{{ item.produit.tarifProduit * item.quantity }}€</td>
+                    <td>
+                        <a href="{{ path('panier_remove', {id: item.produit.idProduit}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5" class="text-right"><h2><b>Total : </b></h2></td>
+                    <td><h2><b>{{ total }} €</b></h2></td>
+                    <td><h3><a href="{{ path('panier_pdf', {id: item.produit.idProduit}) }}" class="btn btn-warning btn-sm">Checkout</a></h3></td>
+                </tr>
+                </tfoot>
+                </table>
+            {% endfor %}
+
+        {% else %}
+
+            <h3>Votre panier est vide</h3>
+
+        {% endif %}
+    </div>
+{% endblock %}
