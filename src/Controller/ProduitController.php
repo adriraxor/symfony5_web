@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
+use App\Entity\Categorie;
 use App\Entity\CommentaireProduit;
 use App\Entity\Produit;
+use App\Form\FiltreForm;
 use App\Form\Produit1Type;
+use App\Form\SearchForm;
+use App\Repository\CategorieRepository;
 use App\Repository\CommentaireProduitRepository;
 use App\Repository\ProduitRepository;
 use DateTime;
@@ -27,16 +32,23 @@ class ProduitController extends AbstractController
     /**
      * @Route("/", name="produit_index", methods={"GET"})
      * @param ProduitRepository $produitRepository
+     * @param CategorieRepository $categorieRepository
+     * @param Request $request
      * @return Response
      */
-    public function index(ProduitRepository $produitRepository): Response
+    public function index(ProduitRepository $produitRepository, CategorieRepository $categorieRepository, Request $request): Response
     {
 
-        $em = $produitRepository->findAllProductInStock();
+        $data = new SearchData();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+        $produits = $produitRepository->findSearch($data);
 
         return $this->render('produit/index.html.twig', [
-            'produits' => $em,
-            'produitRecent' => $produitRepository->findAllRecentProduct(),
+            //'produits' => $produitRepository->findAllProductInStock(),
+            'produits' => $produits,
+            'form' => $form->createView(),
         ]);
     }
 

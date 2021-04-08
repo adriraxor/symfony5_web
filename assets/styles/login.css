@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
 body{
     font-family: 'Patua One', cursive;
-
 }
 
 .btnInscription {
-    margin-top: 32.3%;
-    height: 37px;
+    margin-top: 2%;
+    height: 36px;
     width: 34%;
+    margin-left: 29.9%;
+    margin-bottom: 5%;
 }
+
 .btnConnexion {
     height: 37px;
     width: 34%;
@@ -23,7 +25,7 @@ h1.h3.mb-3.font-weight-normal {
 .container {
     margin-top: 5%;
     max-width: 1670px;
-
+    background-color: cornflowerblue;
 }
 
 .nav-link:hover {

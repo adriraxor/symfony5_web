@@ -6,6 +6,15 @@ body{
 
 }
 
+.container {
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.form-control {
+    width: 180%;
+}
+
 /**
     Effet sur les boutons
  */

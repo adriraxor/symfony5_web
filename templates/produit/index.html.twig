@@ -50,6 +50,8 @@
         </div>
         <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">always show</span>
     </nav>
+
+
     {# <div class="container" id="news">
         <h4 id="title-ajout-recent">Les ajouts récents:</h4>
         <div class="row-1">
@@ -75,33 +77,36 @@
         {% endfor %}
     </div> #}
 
-    <div class="container" id="listeprd">
-        <div class="row flex">
-            {% for produit in produits %}
-                {% if produit | length > 0 %}
-                    <div class="col-3 leProduit">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {% include 'produit/_filter.html.twig' with {form: form} only %}
+            </div>
+            <div class="col-md-9">
+                <div class="grid">
+                    {% for produit in produits %}
                         <div class="card">
-                            {% dump(produit.image) %}
-                            <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="" class="card-img-top" id="card-img-top-list">
+                            <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{ produit.nomProduit }}</h5>
-                                <div class="d-flex justify-content-between align-item-center">
-                                    <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-dark"><i
+                                <div class="card-title">
+                                    <a href="{{ path('panier_add', {id: produit.idproduit}) }}"
+                                       class="btn btn-dark"><i
                                                 class="bi bi-cart-plus"></i></a>
                                     <a href="{{ path('produit_show', {'idproduit': produit.idproduit}) }}"
                                        class="btn btn-dark">Voir détails</a>
-                                    {# <a href="{{ path('produit_edit', {'idproduit': produit.idproduit}) }}" class="btn btn-dark">Modifier</a> #}
                                     <span class="h5 mt-auto tarif-overlay">{{ produit.tarifProduit }}€</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% else %}
-                    <h1>Aucun produits est disponible</h1>
-                    <h3>Cela peut être du à un problème technique ou un re-stockage, veuillez patientez</h3>
-                {% endif %}
-            {% endfor %}
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ knp_pagination_render(produits) }}
+                </div>
+            </div>
         </div>
+
     </div>
 
     {# <a href="{{ path('produit_new') }}">Create new</a>

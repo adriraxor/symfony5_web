@@ -54,7 +54,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" style="border: #1b1e21 dotted 1px;">
+            <div class="col">
                 <form method="post">
                     <div class="container">
                         <div class="row">
@@ -65,14 +65,13 @@
                         </div>
                         <div class="row">
                             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
-                                   placeholder="Adresse Email" autocomplete="off" required autofocus>
+                                   placeholder="Adresse Email" autocomplete="off" onclick="verifChamps(this)" onblur="verifChamps(this)" required >
                         </div>
                         <div class="row">
                             <label for="inputPassword">Mot de passe :</label>
                         </div>
                         <div class="row">
-                            <input type="password" name="password" id="inputPassword" class="form-control"
-                                   placeholder="Mot de passe" required>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         </div>
                         <div class="row">
@@ -86,9 +85,8 @@
                                 </label>
                             </div>
                             #}
-
-                            <button class="btn btn-lg btn-success btnConnexion" type="submit">Connexion</button>
-
+                            <button class="btn btn-lg btn-success btnConnexion" type="submit">Se connecter</button>
+                            <a class="btn btn-lg btn-warning btnInscription" href="{{ path('app_register') }}" id="inscription_link">S'inscrire</a>
                         </div>
                     </div>
                     {% if error %}
@@ -96,24 +94,22 @@
                     {% endif %}
                 </form>
             </div>
-
-            <div class="col" style="border: #1b1e21 dotted 1px;text-align: center;">
-                <div class="row">
-                    <div class="col" style="border: #1b1e21 dotted 1px;text-align: center;">
-                        API GOOGLE / FACEBOOK OU AUTRES
-                    </div>
-                    <div class="col" style="border: #1b1e21 dotted 1px;text-align: center;">
-                        2/2
-                    </div>
-                </div>
-                <a class="btn btn-lg btn-warning btnInscription" href="{{ path('app_register') }}" id="inscription_link">S'inscrire</a>
-            </div>
         </div>
     </div>
 
 
     <script>
+        function verifChamps(leChamp) {
+            var login = document.getElementById('btnConnexion');
+            if (leChamp.value !== "" && leChamp.value.length > 5) {
+                leChamp.style.backgroundColor = "green";
+                login.removeAttribute('disabled');
 
+            } else {
+                leChamp.style.backgroundColor = "red";
+                login.setAttribute('disabled', '');
+            }
+        }
     </script>
 
 {% endblock %}
