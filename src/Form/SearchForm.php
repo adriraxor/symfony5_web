@@ -8,7 +8,7 @@ use App\Data\SearchData;
 use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -33,18 +33,22 @@ class SearchForm extends AbstractType
                 'expanded' => true,
                 'multiple' => true
             ])
-            ->add('min_price', NumberType::class, [
+            ->add('min_price', RangeType::class, [
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix min'
-                ]
+                    'min' => 1,
+                    'max' => 50,
+                    'value' => 0,
+                ],
             ])
-            ->add('max_price', NumberType::class, [
+            ->add('max_price', RangeType::class, [
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Prix max'
+                    'min' => 50,
+                    'max' => 100,
+                    'value' => 50,
                 ]
             ])
 

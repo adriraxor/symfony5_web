@@ -75,16 +75,12 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         </div>
                         <div class="row">
-                            {#
-                            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                            See https://symfony.com/doc/current/security/remember_me.html
-
                             <div class="checkbox mb-3">
                                 <label>
                                     <input type="checkbox" name="_remember_me"> Remember me
                                 </label>
                             </div>
-                            #}
+
                             <button class="btn btn-lg btn-success btnConnexion" type="submit">Se connecter</button>
                             <a class="btn btn-lg btn-warning btnInscription" href="{{ path('app_register') }}" id="inscription_link">S'inscrire</a>
                         </div>
@@ -96,20 +92,4 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        function verifChamps(leChamp) {
-            var login = document.getElementById('btnConnexion');
-            if (leChamp.value !== "" && leChamp.value.length > 5) {
-                leChamp.style.backgroundColor = "green";
-                login.removeAttribute('disabled');
-
-            } else {
-                leChamp.style.backgroundColor = "red";
-                login.setAttribute('disabled', '');
-            }
-        }
-    </script>
-
 {% endblock %}

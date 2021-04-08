@@ -16,6 +16,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "bootstrap-icons": "^1.4.0"
+        "bootstrap-icons": "^1.4.0",
+        "nouislider": "^14.7.0"
     }
 }

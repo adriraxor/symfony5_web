@@ -13,6 +13,40 @@
             {{ form_row(form.max_price) }}
         </div>
     </div>
+    <div class="slider-max-price">
+       {# <input type="range" min="1" max="100" value="0" id="slider-price">#}
+        <p>Prix minimum : <span id="value-min"></span> €</p>         <p>Prix minimum : <span id="value-max"></span> €</p>
+
+    </div>
 
 <button type="submit" class="btn btn-primary w-100">Filtrer</button>
 {{ form_end(form) }}
+
+{% block javascripts %}
+    <script>
+
+
+
+        var slider_min = document.getElementById('min_price');
+        var slider_max = document.getElementById('max_price');
+
+        slider_min.classList.remove("form-control");
+        slider_max.classList.remove("form-control");
+
+
+        var output_min = document.getElementById('value-min');
+        var output_max = document.getElementById('value-max');
+
+        output_min.innerHTML = slider_min.value;
+        output_max.innerHTML = slider_max.value;
+
+
+        slider_min.oninput = function() {
+            output_min.innerHTML = this.value;
+        }
+        slider_max.oninput = function() {
+            output_max.innerHTML = this.value;
+        }
+    </script>
+{% endblock %}
+

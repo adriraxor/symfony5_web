@@ -23,12 +23,14 @@ a.btn:hover {
     transform: translateY(5px);
 }
 
+#max_price {
+    margin-left: -15%;
+}
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,.5);
     transition: 0.5s;
 }
-
 
 .detailPrd_Image {
     margin-top: 100px;

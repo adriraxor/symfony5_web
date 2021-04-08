@@ -59,8 +59,6 @@ class ProduitCrudController extends AbstractCrudController
                     ->setLabel("Ajouter un produit")
                     ->setIcon('fa fa-plus-square');
             });
-
-
     }
 
     public function configureFields(string $pageName): iterable

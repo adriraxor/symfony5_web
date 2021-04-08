@@ -62,7 +62,17 @@ class ClientCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('numTel'),
+            ImageField::new('photo_profil') //Config du champ image
+            ->setBasePath('../Images/Clients/Photos')
+                ->setUploadDir('Images/Clients/Photos')
+                ->setUploadedFileNamePattern('[year]-[month]-[day]_[name].[extension]'),
+            ImageField::new('banniere_profil') //Config du champ image
+            ->setBasePath('../Images/Clients/Bannieres')
+                ->setUploadDir('Images/Clients/Bannieres')
+                ->setUploadedFileNamePattern('[year]-[month]-[day]_[name].[extension]'),
         ];
+
+
     }
 
 }

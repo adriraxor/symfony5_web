@@ -19,26 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#1 || Transfert Code">
-      <change afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/produit/_filter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ppe4-confinement2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ppe4-confinement2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/produits.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/produits.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ClientCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ClientCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/ProduitCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/ProduitCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/SearchData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SearchForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/produit/_filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/_filter.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/produits.base.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produits.base.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,12 +193,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
+    <property name="php.override.implement.member.chooser.php.doc" value="DEFAULT" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\ppe4-confinement2\assets" />
       <recent name="F:\ppe4-confinement2\src\Form" />
     </key>
   </component>
@@ -215,7 +217,7 @@
       <workItem from="1617790112090" duration="335000" />
       <workItem from="1617800824743" duration="28000" />
       <workItem from="1617803407922" duration="3236000" />
-      <workItem from="1617862493518" duration="16541000" />
+      <workItem from="1617862493518" duration="27243000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -224,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617722834577</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
+      <created>1617879290113</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617879290113</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
+      <created>1617879338561</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617879338561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,18 +259,27 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit#1 || Transfert Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit#1 || Transfert Code" />
+    <MESSAGE value="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="558" y="202" key="#SSH_Configurations" timestamp="1617863856554">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="558" y="202" key="#SSH_Configurations/0.0.1920.1080@0.0.1920.1080" timestamp="1617863856554" />
-    <state x="50" y="147" width="889" height="754" key="DirDiffDialog" timestamp="1617878126176">
+    <state x="285" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1617889394239">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="285" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1617889394239" />
+    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617887804848">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617887804848" />
+    <state x="50" y="147" width="889" height="754" key="DirDiffDialog" timestamp="1617883870576">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="199" y="180" width="1566" height="754" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1617723032841" />
-    <state x="50" y="147" width="889" height="754" key="DirDiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617878126176" />
+    <state x="50" y="147" width="889" height="754" key="DirDiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617883870576" />
     <state x="762" y="298" key="FileChooserDialogImpl" timestamp="1617800857576">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -273,10 +298,11 @@
     </state>
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1617722713814" />
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1617863857713" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1617723025085">
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1617879384467">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1617723025085" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617879384467" />
     <state x="93" y="100" width="1487" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617870697799">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

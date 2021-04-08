@@ -62,7 +62,7 @@ class Client implements UserInterface
     private $paniers;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $photo_profil;
 
@@ -70,7 +70,7 @@ class Client implements UserInterface
     private $rawPhoto;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $banniere_profil;
 
