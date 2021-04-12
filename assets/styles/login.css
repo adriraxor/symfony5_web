@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
 body{
     font-family: 'Patua One', cursive;
+    background-color: #3a274e;
 }
 
 .btnInscription {

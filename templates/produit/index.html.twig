@@ -64,15 +64,11 @@
                             <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="{{ produit.nomProduit }}" class="card-img-top" id="img_prd">
                             <a href=" {{ path('produit_show', {'idproduit': produit.idproduit}) }}">
                                 <div class="card-img-overlay">
-                                    <h5 id="tarif-prd">{{ produit.tarifProduit }}€</h5>
+                                    <h5 class="card-title" id="tarif-prd">{{ produit.tarifProduit }}€</h5>
                                 </div>
                             </a>
-                            <div class="card-body" id="body-card-lePrd">
+                            <div class="card-body body-card-lePrd" >
                                 <h5 class="card-title">{{ produit.nomProduit }}</h5>
-                                <div class="card-title">
-                                    <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-dark"><i class="bi bi-cart-plus"></i></a>
-
-                                </div>
                             </div>
                         </div>
 

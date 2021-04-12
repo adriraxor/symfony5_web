@@ -15,8 +15,8 @@ body{
 }
 
 a.btn:hover {
-    transform: translateY(5px);
     transition: 0.8s;
+    filter: drop-shadow(3px 5px 7px black);
 }
 
 .nav-link:hover {
@@ -78,7 +78,12 @@ form.filter {
     cursor: pointer;
 }
 
-#body-card-lePrd{
+#lePrd{
+    border-color: unset;
+}
+
+.body-card-lePrd {
+    height: fit-content;
     background-color: #0c0020;
     color: #949494;
     box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);

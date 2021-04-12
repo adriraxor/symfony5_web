@@ -19,28 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;Minor design change&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Big design update&#10;- Big functionnality Update&#10;- Account view added&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/panier.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/panier.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/produits.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/produits.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/profil.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MonProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MonProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProduitType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProduitType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mon_profil.base.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil.base.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +218,7 @@
       <workItem from="1617862493518" duration="27243000" />
       <workItem from="1617900314394" duration="83000" />
       <workItem from="1618209400869" duration="3834000" />
-      <workItem from="1618213297732" duration="26989000" />
+      <workItem from="1618213297732" duration="28144000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -260,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617900383192</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Big design update&#10;- Big functionnality Update&#10;- Account view added&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
+      <created>1618242552979</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618242552979</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +277,8 @@
     <MESSAGE value="Commit#1 || Transfert Code" />
     <MESSAGE value="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;-&gt; Add filter for products list&#10;-&gt; Major update on admin space (Upload Products and more...)&#10;-&gt; Add &quot;Paginator&quot; for product list&#10;-&gt; Add design for Register Form and Login Form&#10;-&gt; Add design for &quot;view more&quot; for all products&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
     <MESSAGE value="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;Minor design change&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;Minor design change&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
+    <MESSAGE value="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Big design update&#10;- Big functionnality Update&#10;- Account view added&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Big design update&#10;- Big functionnality Update&#10;- Account view added&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="558" y="202" key="#SSH_Configurations" timestamp="1617863856554">
@@ -325,10 +321,10 @@
     </state>
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1617722713814" />
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1617863857713" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1617900389842">
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1618242565480">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1617723025085" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618242565480" />
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617900389842" />
     <state x="93" y="100" width="1487" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618218874170">
       <screen x="0" y="0" width="1920" height="1080" />
