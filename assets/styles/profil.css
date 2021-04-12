@@ -4,16 +4,35 @@ body{
     font-family: 'Patua One', cursive;
 }
 
-#bannière_profil {
-    max-width: max-content;
-    max-height: 335px;
-}
 /**
     Effet sur les boutons
  */
 a.btn:hover {
     transform: translateY(5px);
     transition: 0.8s;
+}
+
+#account_page {
+    margin-top: 3%;
+}
+
+.card.user_logo_div {
+    max-height: 300px;
+    max-width: 350px;
+}
+
+#edit_pseudo:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+
+#user_logo_img {
+    border-radius: 100%;
+    height: 300px;
+    width: auto;
 }
 
 .nav-link:hover {

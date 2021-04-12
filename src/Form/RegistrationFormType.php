@@ -30,22 +30,9 @@ class RegistrationFormType extends AbstractType
             ->add('prenom')
 
             ->add('photoProfil', FileType::class, [
-                'label' => false,
+                'label' => 'Photos de profil',
                 'required' => true,
             ])
-            ->add('banniereProfil', FileType::class, [
-                'label' => false,
-                'required' => true,
-            ])
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter le réglement.',
-                    ]),
-                ],
-            ])
-
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

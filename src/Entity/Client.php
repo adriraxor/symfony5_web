@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @ORM\Table(name="client")
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  */
 class Client implements UserInterface
@@ -70,16 +71,17 @@ class Client implements UserInterface
     private $rawPhoto;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $banniere_profil;
+    private $style_couleur_profil;
 
-    private $rawBanniere;
+
 
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -262,31 +264,24 @@ class Client implements UserInterface
     public function afficherPhoto()
     {
         if(null === $this->rawPhoto) {
-            $this->rawPhoto = "data:image/png;base64," . base64_encode(stream_get_contents($this->getPhotoProfil()));
+            $this->rawPhoto = "data:image/jpg;base64," . base64_encode(stream_get_contents($this->getPhotoProfil()));
         }
 
         return $this->rawPhoto;
     }
 
-    public function getBanniereProfil()
+    public function getStyleCouleurProfil(): ?string
     {
-        return $this->banniere_profil;
+        return $this->style_couleur_profil;
     }
 
-    public function setBanniereProfil($banniere_profil): self
+    public function setStyleCouleurProfil(?string $style_couleur_profil): self
     {
-        $this->banniere_profil = $banniere_profil;
+        $this->style_couleur_profil = $style_couleur_profil;
 
         return $this;
     }
 
 
-    public function afficherBanniere()
-    {
-        if(null === $this->rawPhoto) {
-            $this->rawBanniere = "data:image/png;base64," . base64_encode(stream_get_contents($this->getBanniereProfil()));
-        }
 
-        return $this->rawBanniere;
-    }
 }

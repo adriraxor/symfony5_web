@@ -95,19 +95,14 @@
         </div>
         <div class="row">
             {{ form_row(registrationForm.photoProfil, {
-                label:'Photo profil'
+                label:'Photos profil'
             })  }}
         </div>
-        <div class="row">
-            {{ form_row(registrationForm.banniereProfil, {
-                label:'Banniere Profil'
-            })  }}
-        </div>
-        <div class="row">
+{#        <div class="row">
             <div class="center" style="margin-left: 10%;">{{ form_row(registrationForm.agreeTerms, {
                     label: 'Accepter le reglèment'
                 }) }}</div>
-        </div>
+        </div>#}
         <div class="row">
             <button type="submit" class="btn bg-success" style="margin-left: 10%;">Valider l'inscription</button>
             {{ form_end(registrationForm) }}

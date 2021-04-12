@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Patua+One&display=swap');
 
 body{
-    background: rgb(255, 255, 255);
     font-family: 'Patua One', cursive;
+    background-color: #3a274e;
 }
 
 #navbar{
@@ -48,6 +48,42 @@ a.btn:hover {
      grid-gap: 20px;
  }
 
+#filtre-prds{
+    background-color: cornflowerblue;
+}
 
+form.filter {
+    margin-top: 15%;
+}
+
+#liste-prds {
+    margin-top: 3.2%;
+}
+
+#tarif-prd {
+    background-color: #1ad395;
+    box-shadow: 0 3px 0 rgb(10 162 112 / 43%), inset 0 1px 0 rgb(255 255 255 / 27%);
+    text-shadow: 0 0 9px rgb(17 240 169 / 90%);
+    color: black;
+    width: 50px;
+    text-align: center;
+    margin-left: 90%;
+    height: 8%;
+    padding: 3%;
+}
+
+#lePrd:hover {
+    transform: scale(1.05);
+    transition: 1.2s;
+    cursor: pointer;
+}
+
+#body-card-lePrd{
+    background-color: #0c0020;
+    color: #949494;
+    box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: -8px 10px 5px 0px rgba(0,0,0,0.75);
+}
 
 

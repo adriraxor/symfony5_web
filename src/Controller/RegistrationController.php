@@ -3,10 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Client;
-use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\LoginFormulaireAuthenticator;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,8 +37,10 @@ class RegistrationController extends AbstractController
             $user->setPseudo($form->get('pseudo')->getData());
             $user->setRoles(array("ROLE_USER"));
 
-            $user->setPhotoProfil($form->get('photoProfil')->getData());
-            $user->setBanniereProfil($form->get('banniereProfil')->getData());
+            $photo_file = $user->getPhotoProfil();
+            $photo_name = $photo_file->getClientOriginalName();
+            $photo_file->move($this->getParameter('photo_directory'), $photo_name);
+            $user->setPhotoProfil($photo_name);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);

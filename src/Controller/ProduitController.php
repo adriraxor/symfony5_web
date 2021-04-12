@@ -13,15 +13,10 @@ use App\Repository\CategorieRepository;
 use App\Repository\CommentaireProduitRepository;
 use App\Repository\ProduitRepository;
 use DateTime;
-use phpDocumentor\Reflection\DocBlock\Serializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
  * @Route("/produit")
@@ -36,7 +31,7 @@ class ProduitController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(ProduitRepository $produitRepository, CategorieRepository $categorieRepository, Request $request): Response
+    public function index(ProduitRepository $produitRepository, Request $request): Response
     {
 
         $data = new SearchData();

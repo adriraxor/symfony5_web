@@ -53,27 +53,33 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" id="filtre-prds">
                 {% include 'produit/_filter.html.twig' with {form: form} only %}
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8" id="liste-prds">
+                {% if produits | length > 0 %}
                 <div class="grid">
                     {% for produit in produits %}
-                        <div class="card">
-                            <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="" class="card-img-top">
-                            <div class="card-body">
+                        <div class="card" id="lePrd">
+                            <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="{{ produit.nomProduit }}" class="card-img-top" id="img_prd">
+                            <a href=" {{ path('produit_show', {'idproduit': produit.idproduit}) }}">
+                                <div class="card-img-overlay">
+                                    <h5 id="tarif-prd">{{ produit.tarifProduit }}€</h5>
+                                </div>
+                            </a>
+                            <div class="card-body" id="body-card-lePrd">
                                 <h5 class="card-title">{{ produit.nomProduit }}</h5>
                                 <div class="card-title">
-                                    <a href="{{ path('panier_add', {id: produit.idproduit}) }}"
-                                       class="btn btn-dark"><i
-                                                class="bi bi-cart-plus"></i></a>
-                                    <a href="{{ path('produit_show', {'idproduit': produit.idproduit}) }}"
-                                       class="btn btn-dark">Voir détails</a>
-                                    <span class="h5 mt-auto tarif-overlay">{{ produit.tarifProduit }}€</span>
+                                    <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-dark"><i class="bi bi-cart-plus"></i></a>
+
                                 </div>
                             </div>
                         </div>
+
                     {% endfor %}
+                    {% else %}
+                        <h3>Aucun produit n'est disponible pour le moment</h3>
+                    {% endif %}
                 </div>
                 <div>
                     {{ knp_pagination_render(produits) }}

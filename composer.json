@@ -6,11 +6,11 @@
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
-        "ext-http": "*",
         "ext-iconv": "*",
         "cocur/slugify": "^4.0",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
+        "doctrine/dbal": "^2.0",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
@@ -53,7 +53,9 @@
         "symfony/yaml": "5.2.*",
         "symfonycasts/verify-email-bundle": "^1.2",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.17",
+      "ext-http": "*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
@@ -108,5 +110,7 @@
             "allow-contrib": false,
             "require": "5.2.*"
         }
-    }
+    },
+    "name": "",
+    "description": ""
 }

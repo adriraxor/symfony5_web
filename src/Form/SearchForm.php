@@ -51,7 +51,6 @@ class SearchForm extends AbstractType
                     'value' => 50,
                 ]
             ])
-
         ;
     }
 
