@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\Creer;
 use App\Entity\Facture;
+use App\Entity\LigneCommande;
 use App\Entity\Vente;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -118,7 +122,7 @@ class PanierController extends AbstractController
     }
 
     /**
-     * @Route("/checkout", name="panier_checkout")
+     * @Route("/checkout/{id}", name="panier_checkout")
      * @param SessionInterface $session
      * @param ProduitRepository $produitRepository
      * @return string
@@ -176,6 +180,27 @@ class PanierController extends AbstractController
         $sql->persist($facture);
         $sql->flush();
 
+
+        $commande = new Commande();
+        $commande->setIdClient($user);
+        $commande->setIdFacture($facture);
+        $commande->setDateCommande($dateVue);
+        $commande->setMontantTotal($total);
+
+        $sql = $this->getDoctrine()->getManager();
+        $sql->persist($commande);
+        $sql->flush();
+
+        $ligneCommande = new LigneCommande();
+        $ligneCommande->setIdProduit($item['produit']);
+        $ligneCommande->setIdCommande($commande);
+        $ligneCommande->setQte($item['quantity']);
+        $ligneCommande->setTarif($totalItem);
+
+        $sql = $this->getDoctrine()->getManager();
+        $sql->persist($ligneCommande);
+        $sql->flush();
+
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
 
@@ -190,16 +215,7 @@ class PanierController extends AbstractController
             "Attachment" => true
         ]);
 
-        /*
-        //Supprimez le commentaire si vous voulez voir la page "checkout.html.twig" qui sert de génération de PDF
-        //Si le commentaire est présent votre PDF se générera automatiquement
-        return $this->render('panier/checkout.html.twig', [
-            'items' => $panierAvecProduits,
-            'total' => $total,
-            'uuid' => $uuid,
-            'user'=> $user
-        ]);
-        */
+
     }
 
 }

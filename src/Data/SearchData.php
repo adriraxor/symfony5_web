@@ -5,6 +5,7 @@ namespace App\Data;
 
 
 use App\Entity\Categorie;
+use Symfony\Component\Validator\Constraints\Json;
 
 class SearchData
 {
@@ -12,7 +13,6 @@ class SearchData
     /**
      * @var int
      */
-
     public $page = 1;
 
     /**

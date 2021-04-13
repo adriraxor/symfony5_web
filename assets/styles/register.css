@@ -4,17 +4,23 @@
 body{
     font-family: 'Patua One', cursive;
     background-color: #3a274e;
-    color: #e5e5e5;
+    overflow-x: hidden;
+}
 
+input::placeholder{
+    color: red;
 }
 
 .container {
-    margin-left: 40%;
-    margin-top: 5%;
+    margin-top: 3%;
+    background-color: cornflowerblue;
+    padding: 7%;
 }
 
-.form-control {
-    width: 180%;
+.form-control:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /**
@@ -33,3 +39,163 @@ a.btn:hover {
     color: rgba(255,255,255,.5);
     transition: 0.5s;
 }
+
+
+/**
+ * Modification de chaque input un par un (Il n'est pas possible de directement modifier tous les inputs en mettant directement la balise input{ .... } car le design bootstrap prend le dessus avec ces classes "form-controls")
+ */
+#registration_form_nom{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_nom:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_nom:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+}
+
+#registration_form_nom::placeholder{
+   color: #000000;
+}
+
+#registration_form_nom:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_prenom{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_prenom:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_prenom:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_prenom::placeholder{
+    color: #000000;
+}
+
+#registration_form_prenom:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+
+}
+
+#registration_form_plainPassword{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_plainPassword:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_plainPassword:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_plainPassword::placeholder{
+    color: #000000;
+}
+
+#registration_form_plainPassword:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+
+}
+
+#registration_form_pseudo{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_pseudo:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_pseudo:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_pseudo::placeholder{
+    color: #000000;
+}
+
+#registration_form_pseudo:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+
+}
+
+
+#registration_form_email{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_email:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_email:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_email::placeholder{
+    color: #000000;
+}
+
+#registration_form_email:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+}
+
+#registration_form_num_tel{
+    background-color: #6495ed;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
+}
+
+#registration_form_num_tel:focus::placeholder{
+    color: #ffffff;
+}
+
+#registration_form_num_tel:hover{
+    filter: brightness(0.9);
+}
+
+#registration_form_num_tel::placeholder{
+    color: #000000;
+}
+
+#registration_form_num_tel:focus{
+    border-bottom: 2px solid white !important;
+    filter: opacity(0.9);
+
+}
+

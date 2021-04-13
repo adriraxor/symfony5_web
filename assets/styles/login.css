@@ -43,17 +43,68 @@ h1.h3.mb-3.font-weight-normal {
     padding: 0rem 2rem;
     font-size: 1.05rem;
 }
+.form-control:focus{
+    border: none !important;
+    outline: 0px !important;
+    box-shadow: none !important;
+}
+#inputEmail::placeholder{
+    color: #2053ec;
+}
 
-input#inputEmail {
+#inputPassword::placeholder{
+    color: #2053ec;
+}
+
+#inputEmail {
     width: 34%;
     margin-left: 29.9%;
     margin-bottom: 2%;
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-right: none;
+    border-left:none;
+    background-color: #6495ed;
+    color: #3a274e;
+    filter: opacity(0.5);
 }
 
-input#inputPassword {
+#inputEmail:hover{
+    filter: brightness(0.9);
+}
+
+#inputEmail:focus{
+    border-bottom: 2px solid #ffffff !important;
+    filter: opacity(1);
+}
+
+#inputEmail:focus::placeholder{
+    color: #ffffff;
+}
+
+#inputPassword {
+    background-color: #6495ed;
     width: 34%;
     margin-left: 29.9%;
+    border: none;
+    border-bottom: 2px solid black;
+    color: #3a274e;
+    filter: opacity(0.5);
 }
+
+#inputPassword:hover{
+    filter: brightness(0.9);
+}
+
+#inputPassword:focus::placeholder{
+    color: #ffffff;
+}
+
+#inputPassword:focus{
+    border-bottom: 2px solid #ffffff !important;
+    filter: opacity(1);
+}
+
 label {
     margin-left: 29.9%;
 }

@@ -240,6 +240,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "stevenmaguire/oauth2-microsoft": {
+        "version": "2.2.0"
+    },
     "stripe/stripe-php": {
         "version": "v7.76.0"
     },
@@ -676,5 +679,8 @@
     },
     "webmozart/assert": {
         "version": "1.9.1"
+    },
+    "wohali/oauth2-discord-new": {
+        "version": "1.1.0"
     }
 }

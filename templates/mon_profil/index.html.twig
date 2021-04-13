@@ -65,7 +65,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="card text-center account_details">
+                            <div class="card text-center account_details" id="user_details_div" style="background-color: {{ app.user.styleCouleurProfil }}">
                                 <div class="card-header">{{ app.user.pseudo }}  &nbsp;<span><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#modifPseudo" id="edit_pseudo"></i></span></div>
 
                                 <div class="card-body">
@@ -76,14 +76,16 @@
 
                                             <input type="color" id="colorWell" name="color_picker">
 
+
                                             <input type="submit" value="Sauvegarder" onclick="{{ path('profil_update', {'id': app.user.id}) }}">
                                         </form>
                                         <hr>
                                     </div>
                                     <p class="card-text"><b>Adresse email : </b> <i>{{ app.user.email }}</i></p>
                                     <p class="card-text"><b>Nom : </b><i>{{ app.user.nom }} </i></p>
-                                    <p class="card-text"><b>Prenom : </b><i>{{ app.user.nom }} </i></p>
+                                    <p class="card-text"><b>Prenom : </b><i>{{ app.user.prenom }} </i></p>
                                     <p class="card-text"><b>numéro de téléphone :</b> <i>{{ app.user.numTel }} </i></p>
+                                    <p class="card-text"><b>Pays :</b> <i>{{ app.user.country }} </i></p>
                                 </div>
                                 <div class="card-footer text-muted">Compte validé</div>
                             </div>
@@ -128,26 +130,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modifPseudo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
     {% block javascripts %}
         <script>
 
@@ -158,13 +140,20 @@
             {% else %}
             var defaultColor = '#0000ff';
             {% endif %}
-
-
+            function startup() {
+                colorWell = document.querySelector("#colorWell");
+                colorWell.value = defaultColor;
+                colorWell.addEventListener("input", updateFirst, false);
+                colorWell.addEventListener("change", updateAll, false);
+                colorWell.select();
+            }
 
             function updateFirst(event) {
                 var div = document.getElementById("user_logo_div");
-                if (div) {
+                var div2 = document.getElementById("user_details_div");
+                if (div && div2) {
                     div.style.backgroundColor = event.target.value;
+                    div2.style.backgroundColor = event.target.value;
                 }
             }
 
@@ -172,14 +161,10 @@
                 document.getElementById("user_logo_div").forEach(function (div) {
                     div.style.backgroundColor = event.target.value;
                 });
-            }
 
-            function startup() {
-                colorWell = document.querySelector("#colorWell");
-                colorWell.value = defaultColor;
-                colorWell.addEventListener("input", updateFirst, false);
-                colorWell.addEventListener("change", updateAll, false);
-                colorWell.select();
+                document.getElementById("user_details_div").forEach(function (div2) {
+                    div2.style.backgroundColor = event.target.value;
+                });
             }
 
             window.addEventListener("load", startup, false);

@@ -53,59 +53,75 @@
 
     <div class="container">
         <div class="row">
-            {% for flashError in app.flashes('verify_email_error') %}
-                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-            {% endfor %}
+            <div class="col">
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+            </div>
         </div>
         <div class="row">
-            <h1>Inscription</h1>
+            <div class="col">
+                {{ form_start(registrationForm) }}
+            </div>
+            <div class="col">
+                <h1>Inscription</h1>
+            </div>
+            <div class="col"></div>
         </div>
         <div class="row">
-            {{ form_start(registrationForm) }}
+            <div class="col">
+                {{ form_row(registrationForm.nom) }}
+            </div>
+            <div class="col">
+                {{ form_row(registrationForm.prenom) }}
+            </div>
         </div>
         <div class="row">
-            {{ form_row(registrationForm.email, {
-                label: 'Adresse Email'
-            }) }}
+            <div class="col">
+                {{ form_row(registrationForm.plainPassword) }}
+            </div>
+            <div class="col">
+                {{ form_row(registrationForm.pseudo) }}
+            </div>
         </div>
         <div class="row">
-            {{ form_row(registrationForm.pseudo, {
-                label:'Pseudonyme'
-            })  }}
+            <div class="col">
+                {{ form_row(registrationForm.email) }}
+            </div>
+            <div class="col">
+                {{ form_row(registrationForm.num_tel) }}
+            </div>
         </div>
         <div class="row">
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Mot de passe'
-            }) }}
+            <div class="col">
+                {{ form_row(registrationForm.country) }}
+                {{ form_row(registrationForm.photoProfil) }}
+                <div id="file-name"></div>
+            </div>
         </div>
         <div class="row">
-            {{ form_row(registrationForm.nom, {
-                label:'Nom'
-            })  }}
-        </div>
-        <div class="row">
-            {{ form_row(registrationForm.prenom, {
-                label:'Prenom'
-            })  }}
-        </div>
-        <div class="row">
-            {{ form_row(registrationForm.num_tel, {
-                label:'Numéro Téléphone'
-            })  }}
-        </div>
-        <div class="row">
-            {{ form_row(registrationForm.photoProfil, {
-                label:'Photos profil'
-            })  }}
-        </div>
-{#        <div class="row">
-            <div class="center" style="margin-left: 10%;">{{ form_row(registrationForm.agreeTerms, {
-                    label: 'Accepter le reglèment'
-                }) }}</div>
-        </div>#}
-        <div class="row">
-            <button type="submit" class="btn bg-success" style="margin-left: 10%;">Valider l'inscription</button>
-            {{ form_end(registrationForm) }}
+            <div class="col"></div> <!---Pour le responsive et centrer le bouton--->
+            <div class="col">
+                <button type="submit" class="btn bg-success" style="margin-left: 10%;">Valider l'inscription</button>
+                {{ form_end(registrationForm) }}
+            </div>
+            <div class="col"></div> <!---Pour le responsive et centrer le bouton--->
         </div>
     </div>
+
+    {% block javascripts %}
+        <script>
+                var selector = document.getElementById('registration_form_photoProfil').value;
+
+                function processSelected(fileInput) {
+                    var files = fileInput.files;
+                    var nomFichier = files[0].name
+                    document.getElementById("file-name").innerHTML = "<p style='color: #156b00;'><b>Vous avez sélectionner une photo : </b><i>" + selector + nomFichier + "</i></p>";
+                }
+
+                $.getJSON("countries-FR.json", function(json) {
+                    console.log(json);
+                })
+        </script>
+    {% endblock %}
 {% endblock %}

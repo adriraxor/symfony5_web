@@ -61,26 +61,15 @@
                             <h1 class="h3 mb-3 font-weight-normal">Connectez vous dès maintenant</h1>
                         </div>
                         <div class="row">
-                            <label for="inputEmail" >Adresse Email :</label>
-                        </div>
-                        <div class="row">
+
                             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
                                    placeholder="Adresse Email" autocomplete="off" onclick="verifChamps(this)" onblur="verifChamps(this)" required >
-                        </div>
-                        <div class="row">
-                            <label for="inputPassword">Mot de passe :</label>
                         </div>
                         <div class="row">
                             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         </div>
                         <div class="row">
-{#                            <div class="checkbox mb-3">
-                                <label>
-                                    <input type="checkbox" name="_remember_me"> Remember me
-                                </label>
-                            </div>#}
-
                             <button class="btn btn-lg btn-success btnConnexion" type="submit">Se connecter</button>
                             <a class="btn btn-lg btn-warning btnInscription" href="{{ path('app_register') }}" id="inscription_link">S'inscrire</a>
                         </div>

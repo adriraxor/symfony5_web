@@ -75,6 +75,11 @@ class Client implements UserInterface
      */
     private $style_couleur_profil;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $country;
+
 
 
     public function __construct()
@@ -278,6 +283,18 @@ class Client implements UserInterface
     public function setStyleCouleurProfil(?string $style_couleur_profil): self
     {
         $this->style_couleur_profil = $style_couleur_profil;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }
