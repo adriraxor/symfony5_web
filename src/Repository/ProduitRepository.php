@@ -27,50 +27,26 @@ class ProduitRepository extends ServiceEntityRepository
 
     /**
      * @return int|mixed|string
-     * Cette méthode retourne tous les produits qui sont en stock soit > 0
-     */
-    public function findAllProductInStock(){
-        return $this->createQueryBuilder("p")
-            ->where('p.stock > 0')
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @param $value
-     * @return int|mixed|string
-     */
-    public function findAllProductInCat(){
-
-        $value = 3;
-
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.id_categorie = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @return int|mixed|string
      * Cette méthode retourne les 5 derniers produits récemment ajoutés au catalogue
      */
-    public function findAllRecentProduct(){
+    public function findOneMostRecentProduct(){
         return $this->createQueryBuilder("p")
-            ->setMaxResults(5)
+            ->setMaxResults(1)
             ->orderBy('p.dateApparition', 'DESC')
             ->getQuery()
             ->getResult();
     }
 
     /**
+     * @param $date
      * @return int|mixed|string
-     * Cette méthode retourne les 5 derniers produits récemment ajoutés au catalogue
+     * Cette méthode retourne la liste de tous les produits qui vont prochainement sortir
      */
-    public function findOneMostPopularProduct(){
+    public function findAllComingSoonProduct($date)
+    {
         return $this->createQueryBuilder("p")
-            ->setMaxResults(3)
-            ->orderBy('p.popularite')
+            ->setMaxResults(9)
+            ->where('p.dateApparition > \'' . $date . '\'')
             ->getQuery()
             ->getResult();
     }
@@ -89,14 +65,18 @@ class ProduitRepository extends ServiceEntityRepository
     /**
      * Récupère les produits en fonction d'une recherche
      * @param SearchData $search
+     * @param $date
      * @return PaginationInterface
      */
-    public function findSearch(SearchData $search): PaginationInterface
+    public function findSearch(SearchData $search, $date): PaginationInterface
     {
         $query = $this
             ->createQueryBuilder('p')
+            ->where('p.dateApparition < \'' . $date . '\'')
             ->select('c', 'p')
             ->join('p.id_categorie', 'c');
+
+
 
         if(!empty($search->keyword)){
             $query = $query
@@ -130,4 +110,6 @@ class ProduitRepository extends ServiceEntityRepository
             6
         );
     }
+
+
 }

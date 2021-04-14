@@ -4,32 +4,20 @@ body{
     font-family: 'Patua One', cursive;
     background-color: #3a274e;
 }
+.nav-link{
+    width: 110px;
+}
+#navigation-bar{
+    background-color: #3a274e !important;
+}
 
 #navbar{
     z-index: 1000;
 }
 
 #avis_utilisateurs {
-    background-color: royalblue;
-    color: floralwhite;
-}
-
-a.btn:hover {
-    transition: 0.8s;
-    filter: drop-shadow(3px 5px 7px black);
-}
-
-.nav-link:hover {
-    transform: translateY(5px);
-}
-
-#max_price {
-    margin-left: -15%;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: rgba(255,255,255,.5);
-    transition: 0.5s;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .detailPrd_Image {
@@ -42,19 +30,12 @@ a.btn:hover {
     margin-top: 100px;
 }
 
- .grid{
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     grid-gap: 20px;
- }
 
 #filtre-prds{
     background-color: cornflowerblue;
+    margin-top: 3%;
 }
 
-form.filter {
-    margin-top: 15%;
-}
 
 #liste-prds {
     margin-top: 3.2%;
@@ -89,6 +70,36 @@ form.filter {
     box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);
     -webkit-box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);
     -moz-box-shadow: -8px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+/**
+ * Surcharge bootstrap
+ */
+a.btn:hover {
+    transition: 0.8s;
+    filter: drop-shadow(3px 5px 7px black);
+}
+
+.nav-link:hover {
+    transform: translateY(5px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    transition: 0.5s;
+}
+
+
+ .grid{
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-gap: 20px;
+ }
+
+
+form.filter {
+    margin-top: 15%;
 }
 
 

@@ -27,7 +27,6 @@ class ProduitController extends AbstractController
     /**
      * @Route("/", name="produit_index", methods={"GET"})
      * @param ProduitRepository $produitRepository
-     * @param CategorieRepository $categorieRepository
      * @param Request $request
      * @return Response
      */
@@ -36,12 +35,13 @@ class ProduitController extends AbstractController
 
         $data = new SearchData();
         $data->page = $request->get('page', 1);
+        $date = new DateTime(); //On créer un nouvel objet de type dateTime
+        $dateVue = date_format($date, 'Y-m-d H:i:s'); //on définis le format 24h pour la date
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
-        $produits = $produitRepository->findSearch($data);
+        $produits = $produitRepository->findSearch($data, $dateVue);
 
         return $this->render('produit/index.html.twig', [
-            //'produits' => $produitRepository->findAllProductInStock(),
             'produits' => $produits,
             'form' => $form->createView(),
         ]);
@@ -139,7 +139,7 @@ class ProduitController extends AbstractController
 
             date_default_timezone_set('Europe/Paris'); //On définis le fusiaux horaire
             $input = $_POST['commentaire_produit']; //On récupère le champ textarea qui contiens l'avis utilisateur
-
+            $note = $_POST['note_produit'];
             $date = new DateTime(); //On créer un nouvel objet de type dateTime
             $dateVue = date_format($date, 'd-m-Y H:i'); //on définis le format 24h pour la date
             $client = $this->getUser(); //On récupère les informations de l'User connecté
@@ -147,6 +147,7 @@ class ProduitController extends AbstractController
             $cmpd = new CommentaireProduit(); //On créer un nouvel objet CommentaireProduit
             $cmpd->setMessage($input); //On set le message a partir de l'input
             $cmpd->setDate($dateVue); //On set la date a partir de DateTime
+            $cmpd->setNoteProduit($note);
             $cmpd->setIdClient($client); //on set le Id du client a partir de la récupération de l'Id du client connecté
             $cmpd->setIdProduit($produit); //on set l'id du produit a partir du produit sur lequel a été écris le message (ex : 5 = Mario kart)
 

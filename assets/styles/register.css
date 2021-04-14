@@ -7,6 +7,14 @@ body{
     overflow-x: hidden;
 }
 
+.nav-link{
+    width: 110px;
+}
+
+#navigation-bar{
+    background-color: #3a274e !important;
+}
+
 input::placeholder{
     color: red;
 }

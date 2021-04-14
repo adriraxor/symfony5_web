@@ -4,6 +4,12 @@ body{
     font-family: 'Patua One', cursive;
     background-color: #3a274e;
 }
+.nav-link{
+    width: 110px;
+}
+#navigation-bar{
+    background-color: #3a274e !important;
+}
 
 /**
     Effet sur les boutons

@@ -52,13 +52,6 @@ class Produit
     private $libelle;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="popularite", type="integer", nullable=true)
-     */
-    private $popularite;
-
-    /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="date_apparition", type="datetime", nullable=true)
@@ -151,18 +144,6 @@ class Produit
         return $this;
     }
 
-    public function getPopularite(): ?int
-    {
-        return $this->popularite;
-    }
-
-    public function setPopularite(?int $popularite): self
-    {
-        $this->popularite = $popularite;
-
-        return $this;
-    }
-
     public function getDateApparition(): ?\DateTimeInterface
     {
         return $this->dateApparition;
@@ -198,6 +179,8 @@ class Produit
 
         return $this;
     }
+
+
 
 
     /**

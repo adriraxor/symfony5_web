@@ -4,6 +4,13 @@ body{
     background-color: #3a274e;
 }
 
+#navigation-bar{
+    background-color: #3a274e !important;
+}
+
+.nav-link{
+    width: 110px;
+}
 .btnInscription {
     margin-top: 2%;
     height: 36px;
@@ -19,35 +26,6 @@ body{
     margin-left: 29.9%;
 }
 
-h1.h3.mb-3.font-weight-normal {
-    margin-left: 30%;
-}
-
-.container {
-    margin-top: 5%;
-    max-width: 1670px;
-    background-color: cornflowerblue;
-}
-
-.nav-link:hover {
-    transform: translateY(5px);
-}
-
-
-.navbar-dark .navbar-nav .nav-link {
-    color: rgba(255,255,255,.5);
-    transition: 0.5s;
-}
-
-.btn-group-lg>.btn, .btn-lg {
-    padding: 0rem 2rem;
-    font-size: 1.05rem;
-}
-.form-control:focus{
-    border: none !important;
-    outline: 0px !important;
-    box-shadow: none !important;
-}
 #inputEmail::placeholder{
     color: #2053ec;
 }
@@ -113,3 +91,37 @@ label {
     color: #000000;
     padding-top: 5px;
 }
+
+/**
+ * Surcharge bootstrap
+ */
+h1.h3.mb-3.font-weight-normal {
+    margin-left: 30%;
+}
+
+.container {
+    margin-top: 5%;
+    max-width: 1670px;
+    background-color: cornflowerblue;
+}
+
+.nav-link:hover {
+    transform: translateY(5px);
+}
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    transition: 0.5s;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 0rem 2rem;
+    font-size: 1.05rem;
+}
+.form-control:focus{
+    border: none !important;
+    outline: 0px !important;
+    box-shadow: none !important;
+}
+

@@ -39,7 +39,7 @@ class SearchForm extends AbstractType
                 'attr' => [
                     'min' => 1,
                     'max' => 50,
-                    'value' => 0,
+                    'value' => 1,
                 ],
             ])
             ->add('max_price', RangeType::class, [
@@ -48,7 +48,7 @@ class SearchForm extends AbstractType
                 'attr' => [
                     'min' => 50,
                     'max' => 100,
-                    'value' => 50,
+                    'value' => 100,
                 ]
             ])
         ;

@@ -2,11 +2,34 @@
 
 
 body {
-    overflow: hidden;
+    overflow-y: auto;
     font-family: 'Patua One', cursive;
     background-color: #3a274e;
     color: #e5e5e5;
+}
 
+#navigation-bar {
+    background-color: #3a274e !important;
+}
+
+#container-coming-soon {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 10px #9ecaed;
+    height: auto;
+    width: auto;
+    padding: 2%;
+}
+
+.coming_soon {
+    margin-top: 10%;
+    width: 400px;
+    text-align: center;
+    margin-left: -15px;
+    outline: none;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 10px #9ecaed;
+    padding: 3%;
+    text-shadow: 0 0 12px rgb(56 111 187 / 70%);
 }
 
 /* Surcharge bootstrap et modif classique sur des balises*/
@@ -15,25 +38,40 @@ body {
     transition: 0.5s;
 }
 
-.col-md-4 {
-    max-width: 23.333333%;
+div#new_product {
+    width: 60%;
 }
 
-h4 {
-    color: #848484;
+#img_new_product {
+    height: 300px;
+    width: 100%;
 }
 
-.h3, h3 {
-    font-size: 1.75rem;
-    margin-left: 35%;
+.nav-link {
+    width: 110px;
 }
 
-.col-md-4 {
-    max-width: 129.333333%;
+#container-all {
+    margin-top: 5%;
 }
 
-#bannière_jeu_tendance{
-    max-width: max-content;
-    max-height: 335px;
+#img-carroussel {
+    height: 500px;
+    width: 100%;
 }
 
+.carousel-item {
+    height: 500px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+}

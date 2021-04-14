@@ -39,6 +39,11 @@ class CommentaireProduit
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $note_produit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +93,18 @@ class CommentaireProduit
     public function setDate(?string $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getNoteProduit(): ?int
+    {
+        return $this->note_produit;
+    }
+
+    public function setNoteProduit(int $note_produit): self
+    {
+        $this->note_produit = $note_produit;
 
         return $this;
     }

@@ -2,22 +2,20 @@
 
     {{ form_row(form.keyword) }}
 
+<div class="col-md-10">
     <h4>Catégories</h4>
     {{ form_row(form.categories) }}
-    <h4>Prix</h4>
-    <div class="row">
+</div>
+
         <div class="col-md-6">
+            <h4>Prix</h4>
+            <p>min : <span id="value-min"></span> €</p>
             {{ form_row(form.min_price) }}
         </div>
         <div class="col-md-6">
+            <p>max : <span id="value-max"></span> €</p>
             {{ form_row(form.max_price) }}
         </div>
-    </div>
-    <div class="slider-max-price">
-       {# <input type="range" min="1" max="100" value="0" id="slider-price">#}
-        <p>Prix minimum : <span id="value-min"></span> €</p>         <p>Prix minimum : <span id="value-max"></span> €</p>
-
-    </div>
 
 <button type="submit" class="btn btn-primary w-100">Filtrer</button>
 {{ form_end(form) }}

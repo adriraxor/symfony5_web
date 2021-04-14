@@ -6,6 +6,14 @@ body{
     color: #e5e5e5;
 }
 
+#navigation-bar{
+    background-color: #3a274e !important;
+}
+
+.nav-link{
+    width: 110px;
+}
+
 /**
     Effet sur les boutons
  */

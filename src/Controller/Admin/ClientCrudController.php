@@ -66,10 +66,6 @@ class ClientCrudController extends AbstractCrudController
             ->setBasePath('../Images/Clients/Photos')
                 ->setUploadDir('Images/Clients/Photos')
                 ->setUploadedFileNamePattern('[year]-[month]-[day]_[name].[extension]'),
-            ImageField::new('banniere_profil') //Config du champ image
-            ->setBasePath('../Images/Clients/Bannieres')
-                ->setUploadDir('Images/Clients/Bannieres')
-                ->setUploadedFileNamePattern('[year]-[month]-[day]_[name].[extension]'),
         ];
 
 
