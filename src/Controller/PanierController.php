@@ -6,6 +6,8 @@ use App\Entity\Commande;
 use App\Entity\Creer;
 use App\Entity\Facture;
 use App\Entity\LigneCommande;
+use App\Entity\Panier;
+use App\Entity\Produit;
 use App\Entity\Vente;
 use App\Repository\CategorieRepository;
 use App\Repository\ProduitRepository;
@@ -180,7 +182,6 @@ class PanierController extends AbstractController
         $sql->persist($facture);
         $sql->flush();
 
-
         $commande = new Commande();
         $commande->setIdClient($user);
         $commande->setIdFacture($facture);
@@ -191,15 +192,41 @@ class PanierController extends AbstractController
         $sql->persist($commande);
         $sql->flush();
 
-        $ligneCommande = new LigneCommande();
-        $ligneCommande->setIdProduit($item['produit']);
-        $ligneCommande->setIdCommande($commande);
-        $ligneCommande->setQte($item['quantity']);
-        $ligneCommande->setTarif($totalItem);
+        foreach ($panierAvecProduits as $unPrd){
+            $panier = new Panier();
+            $panier->setQte($unPrd['quantity']);
+            $panier->setIdProduit($unPrd['produit']);
+            $panier->setIdClient($user);
 
-        $sql = $this->getDoctrine()->getManager();
-        $sql->persist($ligneCommande);
-        $sql->flush();
+            $sql = $this->getDoctrine()->getManager();
+            $sql->persist($panier);
+            $sql->flush();
+
+            $ligneCommande = new LigneCommande();
+            $ligneCommande->setIdProduit($unPrd['produit']);
+            $ligneCommande->setIdCommande($commande);
+            $ligneCommande->setQte($unPrd['quantity']);
+            $ligneCommande->setTarif($totalItem);
+
+            $sql = $this->getDoctrine()->getManager();
+            $sql->persist($ligneCommande);
+            $sql->flush();
+
+            $RAW_QUERY = 'UPDATE produit SET stock = stock - 1 WHERE nom_produit = "'.$unPrd['produit'].'"';
+
+            $em = $this->getDoctrine()->getManager();
+            $statement = $em->getConnection()->prepare($RAW_QUERY);
+            $statement->execute();
+
+        }
+
+
+
+
+
+
+
+
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);

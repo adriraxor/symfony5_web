@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentaireProduitRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\String_;
 
 /**
  * @ORM\Entity(repositoryClass=CommentaireProduitRepository::class)
@@ -18,7 +19,7 @@ class CommentaireProduit
     private $id;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
     private $message;
 
@@ -108,5 +109,4 @@ class CommentaireProduit
 
         return $this;
     }
-
 }

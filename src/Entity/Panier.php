@@ -22,16 +22,6 @@ class Panier
     private $id;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $montant_total;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $date_creation;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Client::class)
      * @ORM\JoinColumn(name="Id_Client", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -51,30 +41,6 @@ class Panier
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getMontantTotal(): ?float
-    {
-        return $this->montant_total;
-    }
-
-    public function setMontantTotal(?float $montant_total): self
-    {
-        $this->montant_total = $montant_total;
-
-        return $this;
-    }
-
-    public function getDateCreation(): ?\DateTimeInterface
-    {
-        return $this->date_creation;
-    }
-
-    public function setDateCreation(?\DateTimeInterface $date_creation): self
-    {
-        $this->date_creation = $date_creation;
-
-        return $this;
     }
 
     public function getIdClient(): ?Client

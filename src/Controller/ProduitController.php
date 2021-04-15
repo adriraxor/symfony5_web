@@ -117,7 +117,7 @@ class ProduitController extends AbstractController
      */
     public function delete(Request $request, Produit $produit): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$produit->getIdproduit(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $produit->getIdproduit(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($produit);
             $entityManager->flush();
@@ -131,35 +131,29 @@ class ProduitController extends AbstractController
      * @param Produit $produit
      * @return Response
      */
-    public function commentaire(Request $request, Produit $produit): Response{
+    public function commentaire(Request $request, Produit $produit): Response
+    {
+        date_default_timezone_set('Europe/Paris'); //On définis le fusiaux horaire
+        $input = $_POST['commentaire_produit']; //On récupère le champ textarea qui contiens l'avis utilisateur
+        $note = $_POST['note_produit'];
+        $date = new DateTime(); //On créer un nouvel objet de type dateTime
+        $dateVue = date_format($date, 'd-m-Y H:i'); //on définis le format 24h pour la date
+        $client = $this->getUser(); //On récupère les informations de l'User connecté
 
-        $quest = $request->request->all();
+        $cmpd = new CommentaireProduit(); //On créer un nouvel objet CommentaireProduit
+        $cmpd->setMessage($input); //On set le message a partir de l'input
+        $cmpd->setNoteProduit($note);
+        $cmpd->setDate($dateVue); //On set la date a partir de DateTime
+        $cmpd->setIdClient($client); //on set le Id du client a partir de la récupération de l'Id du client connecté
+        $cmpd->setIdProduit($produit); //on set l'id du produit a partir du produit sur lequel a été écris le message (ex : 5 = Mario kart)
 
-        foreach($quest as $prop=>$qst){
-
-            date_default_timezone_set('Europe/Paris'); //On définis le fusiaux horaire
-            $input = $_POST['commentaire_produit']; //On récupère le champ textarea qui contiens l'avis utilisateur
-            $note = $_POST['note_produit'];
-            $date = new DateTime(); //On créer un nouvel objet de type dateTime
-            $dateVue = date_format($date, 'd-m-Y H:i'); //on définis le format 24h pour la date
-            $client = $this->getUser(); //On récupère les informations de l'User connecté
-
-            $cmpd = new CommentaireProduit(); //On créer un nouvel objet CommentaireProduit
-            $cmpd->setMessage($input); //On set le message a partir de l'input
-            $cmpd->setDate($dateVue); //On set la date a partir de DateTime
-            $cmpd->setNoteProduit($note);
-            $cmpd->setIdClient($client); //on set le Id du client a partir de la récupération de l'Id du client connecté
-            $cmpd->setIdProduit($produit); //on set l'id du produit a partir du produit sur lequel a été écris le message (ex : 5 = Mario kart)
-
-            //Procédure pour insérer dans la base de données
-            $sql = $this->getDoctrine()->getManager();
-            $sql->persist($cmpd);
-            $sql->flush();
-        }
+        //Procédure pour insérer dans la base de données
+        $sql = $this->getDoctrine()->getManager();
+        $sql->persist($cmpd);
+        $sql->flush();
 
         //On actualise en redirigant vers la même page
         return $this->redirect($request->getUri());
-
     }
 
 }

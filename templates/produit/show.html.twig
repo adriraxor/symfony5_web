@@ -14,10 +14,12 @@
                     <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad" aria-hidden="true"></i>Produits</a>
+                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad"
+                                                                               aria-hidden="true"></i>Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>
+                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart"
+                                                                       aria-hidden="true"></i>Panier</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -27,23 +29,27 @@
                 {% if is_granted('ROLE_USER') %}
                     {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('mon_profil') }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
+                            <a class="nav-link" href="{{ path('mon_profil') }}"><i class="fa fa-user"
+                                                                                   aria-hidden="true"></i>Compte</a>
                         </li>
                     {% endif %}
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"
+                                                                               aria-hidden="true"></i>Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'inscrire</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in"
+                                                                               aria-hidden="true"></i>&nbsp;S'inscrire</a>
                     </li>
                 {% endif %}
             </ul>
         </div>
         {% if app.user %}
-            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">Bonjour, {{ app.user.email }}</span>
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last"
+                  style="font-size: 15px">Bonjour, {{ app.user.email }}</span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
         {% endif %}
@@ -55,7 +61,8 @@
                 <div class="card detailPrd_Image">
                     <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <h5 class="card-title"><h1><span class="badge rounded-pill bg-warning text-dark" style="margin-top: 300px;">{{ produit.tarifProduit }} €</span>
+                        <h5 class="card-title"><h1><span class="badge rounded-pill bg-warning text-dark"
+                                                         style="margin-top: 300px;">{{ produit.tarifProduit }} €</span>
                             </h1></h5>
                     </div>
                 </div>
@@ -76,9 +83,7 @@
         <div class="row">
             <div class="col">
                 <div class="card text-center detailPrd_Description">
-                    <div class="card-header">
-                        Description
-                    </div>
+                    <div class="card-header">Description</div>
                     <div class="card-body">
                         <p class="card-text">{{ produit.libelle }}</p>
                     </div>
@@ -87,10 +92,35 @@
             </div>
         </div>
     </div>
+
     <div class="container" id="detailPrd_Comment">
         <div class="row">
             <div class="col">
+                <br>
                 <h3 style="border-bottom: 1px solid; color: whitesmoke;">Avis utilisateurs</h3>
+                <div class="form-group">
+                    {% if is_granted('ROLE_USER') %}
+                    <label for="exampleFormControlTextarea1" style="color: whitesmoke;"><h5>Ecrire un commentaire sur le
+                            produit</h5></label>
+                    <div class="error-message" id="error_msg"></div>
+
+                    <div class="stars" style="font-size: 25px;">
+                        <i class="far fa-star star" data-value="1"></i><i class="far fa-star star" data-value="2"></i><i class="far fa-star star" data-value="3"></i><i class="far fa-star star" data-value="4"></i><i class="far fa-star star" data-value="5"></i>
+                    </div>
+                    <form name="commentaire_form" method="post" action="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}" onsubmit="return validateForm()">
+                        <input type="hidden" name="note_produit" id="note_produit">
+                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3" required></textarea>
+                        <br>
+                        <input type="submit" class="btn btn-success" value="Soumettre" id="submit_commentaire">
+                    </form>
+                </div>
+                {% else %}
+                    <label for="exampleFormControlTextarea1"><h5>Ecrire un commentaire sur le produit</h5></label>
+                    <textarea class="form-control" id="commentaire_produit" name="commentaire_produit"
+                              rows="3" placeholder="Vous devez être connecté pour écrire un commentaire"
+                              disabled></textarea>
+                    <input class="btn btn-danger btn" value="Soumettre le commentaire" disabled>
+                {% endif %}
                 {% if commentaires | length > 0 %}
                     <table class="table table-striped table-dark" id="avis_utilisateurs">
                         <thead>
@@ -98,15 +128,16 @@
                             <th scope="col">Pseudo</th>
                             <th scope="col">Message</th>
                             <th scope="col">Date</th>
+                            <th scope="col">Note Produit</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for commentaire in commentaires %}
-
                             <tr>
                                 <td>{{ commentaire.idClient }}</td>
                                 <td>{{ commentaire.message }}</td>
                                 <td>{{ commentaire.date }}</td>
+                                <td>{{ commentaire.noteProduit }} / 5</td>
                             </tr>
                         {% endfor %}
                         </tbody>
@@ -121,60 +152,60 @@
                         </div>
                     {% endif %}
                 {% endif %}
-
-
-                <div class="form-group">
-                    {% if is_granted('ROLE_USER') %}
-                    <label for="exampleFormControlTextarea1" style="color: whitesmoke;"><h5>Ecrire un commentaire sur le
-                            produit</h5></label>
-                    <form method="post" action="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}">
-                        <div class="stars" style="color: orange;">
-                            <i class="far fa-star" data-value="1"></i><i class="far fa-star" data-value="2"></i><i class="far fa-star" data-value="3"></i><i class="far fa-star" data-value="4"></i><i class="far fa-star" data-value="5"></i>
-                            <input type="hidden" name="note_produit" id="note_produit" value="0">
-                        </div>
-                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit"
-                                  rows="3"></textarea>
-                        <input type="submit" value="Soumettre"
-                               onclick="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}">
-                    </form>
-                </div>
-            {% else %}
-                <label for="exampleFormControlTextarea1"><h5>Ecrire un commentaire sur le produit</h5></label>
-                <textarea class="form-control" id="commentaire_produit" name="commentaire_produit"
-                          rows="3" placeholder="Vous devez être connecté pour écrire un commentaire"
-                          disabled></textarea>
-                <input class="btn btn-danger btn" value="Soumettre le commentaire" disabled>
-                {% endif %}
             </div>
         </div>
     </div>
     {% block javascripts %}
         <script>
+            /**
+             * La fonction vérifie le formulaire lors du submit
+             * Retourne false si une des conditions n'est pas remplies donc on annule le submit du form (Un champ manquant ou autres)
+             * Retourne true si une des conditions est remplie donc on effectue le submit (Le commentaire est publié)
+             * @returns {boolean}
+             */
+            function validateForm() {
+                var x = document.forms["commentaire_form"]["note_produit"].value;
+                var error = document.getElementById('error_msg');
+                error.style.color = "red";
+                error.style.fontSize = "20px";
 
+                if (x == "") {
+                    error.innerHTML = "<i class=\"fas fa-exclamation-triangle\"></i>Veuillez noter le produit avant de soumettre votre commentaire<i class=\"fas fa-exclamation-triangle\"></i>";
+                    return false;
+                }
+            }
+
+            /**
+             * Lors du chargement de la page on va plusieurs écoute sur des événements tels que le clic, le survol, ou le mouse out
+             * Tous cela va concerner la notation à étoile
+             * On va récupérer les valeurs de chaque étoiles via le data-value = "XXXX" allant de 1 à 5 qui va correspondre à la note sur 5
+             * De ce fait on va effectuer diverses actions sur les étoiles tels que le changement d'icone (Etoile rempli ou vide lorsque l'on sélectionne une étoile)
+             * on va détecter les étoiles précédentes en fonction de l'étoile que l'on a sélectionner (Si on sélectionne la 5eme on va remplacer toutes les précédentes étoiles ainsi que l'étoile sélectionner par des étoiles remplies)
+             * On va faire des changements de couleurs etc...
+             */
             window.onload = () => {
                 // On va chercher toutes les étoiles
                 const stars = document.querySelectorAll(".fa-star");
 
                 //On va chercher l'input caché
-
                 const note = document.querySelector("#note_produit");
 
                 //On boucle sur les étoiles pour leur ajouter des écouteurs d'évènements
-                for(star of stars){
+                for (star of stars) {
                     //On écoute le survol
-                    star.addEventListener("mouseover", function(){
+                    star.addEventListener("mouseover", function () {
                         this.style.color = "red";
 
                         //L'élément précédent dans le DOM (de même niveau)
                         let previousStarOver = this.previousElementSibling;
 
-                        while(previousStarOver){
+                        while (previousStarOver) {
                             previousStarOver.style.color = "red";
                             previousStarOver = previousStarOver.previousElementSibling;
                         }
                     });
 
-                    star.addEventListener("click", function (){
+                    star.addEventListener("click", function () {
                         this.classList.replace('far', 'fa');
                         this.style.color = "orange";
 
@@ -183,21 +214,23 @@
                         //L'élément précédent dans le DOM (de même niveau)
                         let previousStarClick = this.previousElementSibling;
 
-                        while(previousStarClick){
+                        while (previousStarClick) {
                             previousStarClick.style.color = "orange";
                             previousStarClick.classList.replace('far', 'fa');
                             previousStarClick = previousStarClick.previousElementSibling;
                         }
                     });
 
-                    star.addEventListener("mouseout", function (){
+                    star.addEventListener("mouseout", function () {
                         resetStars(note.value);
                     });
 
+
                 }
-                function resetStars(note = 0){
-                    for(star of stars){
-                        if(star.dataset.value > note){
+
+                function resetStars(note = 0) {
+                    for (star of stars) {
+                        if (star.dataset.value > note) {
                             star.style.color = "orange";
                             star.classList.replace('fa', 'far');
                         } else {
