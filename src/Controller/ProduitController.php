@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Data\SearchData;
-use App\Entity\Categorie;
 use App\Entity\CommentaireProduit;
 use App\Entity\Produit;
 use App\Form\FiltreForm;
 use App\Form\Produit1Type;
 use App\Form\SearchForm;
-use App\Repository\CategorieRepository;
 use App\Repository\CommentaireProduitRepository;
 use App\Repository\ProduitRepository;
 use DateTime;
@@ -17,6 +15,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @Route("/produit")
@@ -155,5 +157,9 @@ class ProduitController extends AbstractController
         //On actualise en redirigant vers la même page
         return $this->redirect($request->getUri());
     }
+
+
+
+
 
 }

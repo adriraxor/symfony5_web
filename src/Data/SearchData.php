@@ -18,7 +18,7 @@ class SearchData
     /**
      * @var string
      */
-    public $keyword = '';
+    public $keyword = "";
 
     /**
      * @var Categorie[]

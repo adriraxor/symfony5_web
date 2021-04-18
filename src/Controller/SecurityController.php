@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
-use KnpU\OAuth2ClientBundle\Client\Provider\DiscordClient;
-use KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient;
-use KnpU\OAuth2ClientBundle\Client\Provider\MicrosoftClient;
+use phpDocumentor\Reflection\DocBlock\Serializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class SecurityController extends AbstractController
 {
@@ -43,5 +43,6 @@ class SecurityController extends AbstractController
 
 
     }
+
 
 }

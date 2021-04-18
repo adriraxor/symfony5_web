@@ -38,6 +38,18 @@ class ProduitRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return int|mixed|string
+     * Cette méthode retourne les 5 derniers produits récemment ajoutés au catalogue
+     */
+    public function findAllTest(){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
+            ->join("p.id_categorie", "c")
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @param $date
      * @return int|mixed|string
      * Cette méthode retourne la liste de tous les produits qui vont prochainement sortir
@@ -81,7 +93,7 @@ class ProduitRepository extends ServiceEntityRepository
         if(!empty($search->keyword)){
             $query = $query
                 ->andWhere('p.nomProduit LIKE :keyword')
-                ->setParameter('keyword', "%{$search}%");
+                ->setParameter('keyword', "%{$search->keyword}%");
         }
 
         if(!empty($search->min_price)){

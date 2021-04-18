@@ -19,17 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#2 || Big update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Database update&#10;- Rating system (JS)&#10;- Big design update&#10;- HomePage update !!!&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ...">
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit#2 || Correctif update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Patch checkout system (Database and php update)&#10;- Update Rating system (JS) (Check form before submit)&#10;- Minor design update&#10;- Controller update and entity update&#10;- Update pdf when successfull paiement&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/produits.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/produits.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CommentaireProduit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommentaireProduit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Panier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/SearchData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panier/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +229,10 @@
       <workItem from="1618296541870" duration="29451000" />
       <workItem from="1618382797622" duration="18166000" />
       <workItem from="1618411290156" duration="9003000" />
-      <workItem from="1618476779316" duration="16249000" />
+      <workItem from="1618476779316" duration="16655000" />
+      <workItem from="1618571664886" duration="1296000" />
+      <workItem from="1618643253521" duration="7797000" />
+      <workItem from="1618745576490" duration="651000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -286,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618420300134</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Commit#2 || Correctif update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Patch checkout system (Database and php update)&#10;- Update Rating system (JS) (Check form before submit)&#10;- Minor design update&#10;- Controller update and entity update&#10;- Update pdf when successfull paiement&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+      <created>1618501436211</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1618501436211</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +323,8 @@
     <MESSAGE value="Commit#2 || Minor update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Minor design update&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
     <MESSAGE value="Commit#2 || Big update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Database update &#10;- Order successfull (orders details .PDF)&#10;- Big design update&#10;- New registration field (Countries)&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
     <MESSAGE value="Commit#2 || Big update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Database update&#10;- Rating system (JS)&#10;- Big design update&#10;- HomePage update !!!&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit#2 || Big update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Database update&#10;- Rating system (JS)&#10;- Big design update&#10;- HomePage update !!!&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; Add .pdf when payment it's accepted&#10;-&gt; And more ..." />
+    <MESSAGE value="Commit#2 || Correctif update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Patch checkout system (Database and php update)&#10;- Update Rating system (JS) (Check form before submit)&#10;- Minor design update&#10;- Controller update and entity update&#10;- Update pdf when successfull paiement&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit#2 || Correctif update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Patch checkout system (Database and php update)&#10;- Update Rating system (JS) (Check form before submit)&#10;- Minor design update&#10;- Controller update and entity update&#10;- Update pdf when successfull paiement&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="218" key="#Inspections" timestamp="1618325526156">
@@ -323,28 +335,28 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="198" key="#JSON_Schema_Mappings/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618325462302" />
-    <state x="558" y="202" key="#SSH_Configurations" timestamp="1618479219968">
+    <state x="558" y="202" key="#SSH_Configurations" timestamp="1618645334905">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="558" y="202" key="#SSH_Configurations/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618479219968" />
+    <state x="558" y="202" key="#SSH_Configurations/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618645334905" />
     <state x="558" y="202" key="#SSH_Configurations/0.0.1920.1080@0.0.1920.1080" timestamp="1617863856554" />
     <state x="285" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1617889394239">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="285" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1617889394239" />
-    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618494223576">
+    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618664013778">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618494223576" />
+    <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618664013778" />
     <state x="546" y="362" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617887804848" />
     <state x="620" y="456" key="ComposerInitDialogKey" timestamp="1618212583499">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="620" y="456" key="ComposerInitDialogKey/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618212583499" />
-    <state x="297" y="159" width="1566" height="754" key="DirDiffDialog" timestamp="1618495531233">
+    <state x="297" y="159" width="1566" height="754" key="DirDiffDialog" timestamp="1618664009837">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="297" y="159" width="1566" height="754" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618495531233" />
+    <state x="297" y="159" width="1566" height="754" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618664009837" />
     <state x="50" y="147" width="889" height="754" key="DirDiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617883870576" />
     <state x="762" y="298" key="FileChooserDialogImpl" timestamp="1617800857576">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -364,19 +376,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="744" y="246" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617870681550" />
-    <state x="483" y="202" key="SettingsEditor" timestamp="1618479220619">
+    <state x="483" y="202" key="SettingsEditor" timestamp="1618645335537">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618479220619" />
+    <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618645335537" />
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1617863857713" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1618405285945">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618405285945" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1618420306373">
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1618501726546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618420306373" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618501726546" />
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617900389842" />
     <state x="93" y="100" width="1487" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618218874170">
       <screen x="0" y="0" width="1920" height="1080" />

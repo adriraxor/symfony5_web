@@ -20,6 +20,7 @@ class Produit
      * @ORM\Column(name="idProduit", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
      */
     private $idproduit;
 
@@ -79,6 +80,7 @@ class Produit
 
     public function __construct()
     {
+
         $this->ligneCommandes = new ArrayCollection();
     }
 

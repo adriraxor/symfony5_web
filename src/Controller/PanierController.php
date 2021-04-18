@@ -98,6 +98,9 @@ class PanierController extends AbstractController
         $panier = $session->get('panier', []); //Si je n'ai pas de panier j'affiche un tableau vide
 
         $panier[$id]--;
+        if($panier[$id] < 1){
+            unset($panier[$id]);
+        }
 
 
         $session->set('panier', $panier);

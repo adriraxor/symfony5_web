@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
-use App\Entity\CommentaireProduit;
-use App\Repository\CommentaireProduitRepository;
+use App\Entity\Produit;
 use App\Repository\ProduitRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class AccueilController extends AbstractController
 {
@@ -16,10 +19,9 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil", methods={"GET"})
      * @param ProduitRepository $produitRepository
-     * @param CommentaireProduit $commentaireProduit
      * @return Response
      */
-    public function index(ProduitRepository $produitRepository, CommentaireProduitRepository $commentaireProduit): Response
+    public function index(ProduitRepository $produitRepository): Response
     {
 
         $date = new DateTime(); //On créer un nouvel objet de type dateTime
@@ -41,4 +43,6 @@ class AccueilController extends AbstractController
             'produits_soon' => $produitRepository->findAllComingSoonProduct($dateVue),
         ]);
     }
+
+
 }
