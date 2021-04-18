@@ -110,12 +110,10 @@
 
     {% block javascripts %}
         <script>
-                var selector = document.getElementById('registration_form_photoProfil').value;
-
                 function processSelected(fileInput) {
                     var files = fileInput.files;
                     var nomFichier = files[0].name
-                    document.getElementById("file-name").innerHTML = "<p style='color: #156b00;'><b>Vous avez sélectionner une photo : </b><i>" + selector + nomFichier + "</i></p>";
+                    document.getElementById("file-name").innerHTML = "<p style='color: #156b00;'><b>Vous avez sélectionner une photo : </b><i>" + selector_photoProfil + nomFichier + "</i></p>";
                 }
 
                 $.getJSON("countries-FR.json", function(json) {
