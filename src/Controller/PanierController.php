@@ -92,6 +92,9 @@ class PanierController extends AbstractController
 
     /**
      * @Route("/panier/moins/{id}", name="panier_moins")
+     * @param $id
+     * @param SessionInterface $session
+     * @return RedirectResponse
      */
     public function moins($id, SessionInterface $session)
     {
