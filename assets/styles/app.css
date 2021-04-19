@@ -21,7 +21,6 @@ body {
 }
 
 
-
 .coming_soon {
     margin-top: 10%;
     width: 400px;
@@ -77,3 +76,15 @@ div#new_product {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 8px;
 }
+
+.bandeau_prd {
+    background-color: #70e5ff;
+    width: 100%;
+    margin-top: 90%;
+    font-size: 20px;
+    color: teal;
+    text-shadow: 0 0 12px rgb(56 111 187 / 70%);
+    border: 0px solid dodgerblue;
+    box-shadow: 0 0 10px #9ecaed;
+}
+

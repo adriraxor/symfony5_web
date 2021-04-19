@@ -66,7 +66,7 @@
                             <img id="img-carroussel" class="d-block w-100"
                                  src="{{ asset('../Images/Divers/RaxorShop.jpg') }}" alt="First slide">
                         </div>
-                        {% for produit_pop in produits_populaire %}
+                        {% for produit_pop in produits_populaire_carroussel %}
                             <div class="carousel-item">
                                 <img id="img-carroussel" class="d-block w-100"
                                      src="{{ asset('../Images/Produits/' ~ produit_pop.image) }}" alt="Second slide">
@@ -109,12 +109,15 @@
         <div class="row" style="width: auto;">
             <div class="col" id="container-coming-soon">
                 <div class="grid">
+
                     {% for produit_soon in produits_soon %}
                         <div class="card" style="max-width: 300px; max-height: 300px">
                             <img class="card-img-top" src="{{ asset('../Images/Produits/' ~ produit_soon.image) }}"
                                  alt="Card image cap" style="max-width: 300px; max-height: 300px">
-                            <div class="card-img-overlay">
-                                <h5 class="card-title"><span class="badge rounded-pill bg-warning text-dark">14/01/2022</span></h5>
+                            <div class="card-img-overlay overlay">
+                                <h5 class="card-title"><span
+                                            class="badge rounded-pill bandeau_prd">{{ produit_soon.dateApparition | date('d-m-Y') }}</span>
+                                </h5>
                             </div>
                         </div>
                     {% endfor %}
@@ -123,6 +126,37 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="coming_soon">
+                    <h1>Top 5 tendance</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="width: auto;">
+            <div class="col" id="container-coming-soon">
+                <div class="grid">
+                    {% set i = 0 %}
+                    {% for produit_pop in produits_populaire_top5 %}
+                        <div class="card" style="max-width: 300px; max-height: 300px" id="{% set i = i + 1 %}{{ i }}">
+                            <img class="card-img-top" src="{{ asset('../Images/Produits/' ~ produit_pop.image) }}"
+                                 alt="Card image cap" style="max-width: 300px; max-height: 300px">
+                            <div class="card-img-overlay">
+                                {% if i < produit_pop %}
+                                    {% if i == 1 %}
+                                        <h5 class="card-title"><span class="badge rounded-pill bandeau_prd" style="color: orange;">n°{{ i }}</span></h5>
+                                    {% else %}
+                                        <h5 class="card-title"><span class="badge rounded-pill bandeau_prd">n°{{ i }}</span></h5>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

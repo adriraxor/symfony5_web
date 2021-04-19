@@ -2,16 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Produit;
 use App\Repository\ProduitRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
 
 class AccueilController extends AbstractController
 {
@@ -28,18 +23,27 @@ class AccueilController extends AbstractController
         $dateVue = date_format($date, 'Y-m-d H:i:s'); //on définis le format 24h pour la date
 
         $em = $this->getDoctrine()->getManager();
-        $RAW_QUERY = 'SELECT AVG(note_produit), image FROM commentaire_produit cp INNER JOIN produit p ON cp.id_produit = p.idProduit GROUP BY idProduit;';
 
-        $statement = $em->getConnection()->prepare($RAW_QUERY);
-        $statement->execute();
+        $query_carroussel = 'SELECT AVG(note_produit) AS Note_Jeu, image FROM commentaire_produit cp INNER JOIN produit p ON cp.id_produit = p.idProduit GROUP BY idProduit ORDER BY Note_Jeu DESC LIMIT 3;';
+        $statement_carroussel = $em->getConnection()->prepare($query_carroussel);
 
-        $result = $statement->fetchAll();
+
+        $query_tendance = 'SELECT AVG(note_produit) AS Note_Jeu, image FROM commentaire_produit cp INNER JOIN produit p ON cp.id_produit = p.idProduit GROUP BY idProduit ORDER BY Note_Jeu DESC LIMIT 5;';
+        $statement_tendance = $em->getConnection()->prepare($query_tendance);
+
+
+        $statement_carroussel->execute();
+        $statement_tendance->execute();
+
+        $result_carroussel = $statement_carroussel->fetchAll();
+        $result_tendance = $statement_tendance->fetchAll();
 
 
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
-            'produits_populaire' => $result,
-            'produits_recent' => $produitRepository->findOneMostRecentProduct(),
+            'produits_populaire_carroussel' => $result_carroussel,
+            'produits_populaire_top5' => $result_tendance,
+            'produits_recent' => $produitRepository->findOneMostRecentProduct($dateVue),
             'produits_soon' => $produitRepository->findAllComingSoonProduct($dateVue),
         ]);
     }

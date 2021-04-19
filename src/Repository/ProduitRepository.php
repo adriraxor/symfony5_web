@@ -29,9 +29,10 @@ class ProduitRepository extends ServiceEntityRepository
      * @return int|mixed|string
      * Cette méthode retourne les 5 derniers produits récemment ajoutés au catalogue
      */
-    public function findOneMostRecentProduct(){
+    public function findOneMostRecentProduct($date){
         return $this->createQueryBuilder("p")
             ->setMaxResults(1)
+            ->where('p.dateApparition < \'' . $date . '\'')
             ->orderBy('p.dateApparition', 'DESC')
             ->getQuery()
             ->getResult();

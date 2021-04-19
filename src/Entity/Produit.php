@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -53,7 +54,7 @@ class Produit
     private $libelle;
 
     /**
-     * @var \DateTime|null
+     * @var DateTime|null
      *
      * @ORM\Column(name="date_apparition", type="datetime", nullable=true)
      */
