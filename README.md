@@ -16,4 +16,4 @@
 
 **4. Panier fonctionnel (Avec intégration de l'API Paypal)**
 
-**5. Authentification sécurisé symfony (Password Hash, Rôles Hierarchy...)**
+**5. Authentification sécurisé symfony (Password Hash, Rôles Hierarchy...)** 
