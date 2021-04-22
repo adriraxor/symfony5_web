@@ -36,6 +36,18 @@ class ClientRepository extends ServiceEntityRepository implements PasswordUpgrad
         $this->_em->flush();
     }
 
+
+    /**
+     * Retourne tous les clients pour l'API
+     * @return int|mixed|string
+     */
+    public function findAllClientsAPI(){
+        return $this->createQueryBuilder('c')
+            ->select('c.email', 'c.pseudo', 'c.roles', 'c.numTel', 'c.nom', 'c.prenom', 'c.country', 'c.photo_profil', 'c.style_couleur_profil')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Client[] Returns an array of Client objects
     //  */

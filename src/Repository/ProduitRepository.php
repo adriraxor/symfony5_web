@@ -40,15 +40,45 @@ class ProduitRepository extends ServiceEntityRepository
 
     /**
      * @return int|mixed|string
-     * Cette méthode retourne les 5 derniers produits récemment ajoutés au catalogue
+     * Cette méthode retourne tous les produits pour l'API
      */
-    public function findAllTest(){
+    public function findAllProductAPI(){
         return $this->createQueryBuilder("p")
             ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
             ->join("p.id_categorie", "c")
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @param $date
+     * @return int|mixed|string
+     * Cette méthode retourne tous les produits récents pour l'API
+     */
+    public function findAllRecentProductAPI($date){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
+            ->join("p.id_categorie", "c")
+            ->where('p.dateApparition < \'' . $date . '\'')
+            ->orderBy('p.dateApparition', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return int|mixed|string
+     * Cette méthode retourne tous les produits récents pour l'API
+     */
+    public function findAllCommingSoonProductsAPI($date){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
+            ->join("p.id_categorie", "c")
+            ->where('p.dateApparition > \'' . $date . '\'')
+            ->orderBy('p.dateApparition', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     /**
      * @param $date
@@ -120,7 +150,7 @@ class ProduitRepository extends ServiceEntityRepository
         return $this->paginator->paginate(
             $query,
             $search->page,
-            6
+            10
         );
     }
 

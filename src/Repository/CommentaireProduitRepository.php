@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\CommentaireProduit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method CommentaireProduit|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,26 +16,34 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentaireProduitRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, CommentaireProduit::class);
+        $this->paginator = $paginator;
     }
 
     /**
+     * @param CommentaireProduit $cmpd
      * @param $value
      * @return int|mixed|string
      * Cette méthode retourne tous les commentaires sur le produit sélectionner par l'utilisateur
      */
-    public function findAllComment($value){
+    public function findAllComment(CommentaireProduit $cmpd, $value): PaginationInterface{
 
         //$value = 2;
 
-        return $this->createQueryBuilder('cp')
+        $query = $this->createQueryBuilder('cp')
             ->andWhere('cp.id_produit = :val')
             ->setParameter('val', $value)
             ->orderBy('cp.date', 'DESC')
             ->getQuery()
             ->getResult();
+
+        return $this->paginator->paginate(
+            $query,
+            $cmpd->page,
+            10
+        );
     }
 
 

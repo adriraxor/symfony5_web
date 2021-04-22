@@ -9,7 +9,7 @@ body {
 }
 
 #navigation-bar {
-    background-color: #3a274e !important;
+    background-color: #3a274e;
 }
 
 #container-coming-soon {
@@ -19,7 +19,6 @@ body {
     width: auto;
     padding: 2%;
 }
-
 
 .coming_soon {
     margin-top: 10%;
@@ -39,8 +38,10 @@ body {
     transition: 0.5s;
 }
 
-div#new_product {
+#new_product {
     width: 60%;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
 #img_new_product {
@@ -53,7 +54,7 @@ div#new_product {
 }
 
 #container-all {
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 #img-carroussel {
@@ -71,7 +72,12 @@ div#new_product {
     width: 100%;
 }
 
-.grid{
+.carousel {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 8px;
@@ -87,4 +93,15 @@ div#new_product {
     border: 0px solid dodgerblue;
     box-shadow: 0 0 10px #9ecaed;
 }
+
+#user_logo_navbar {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+
+
 

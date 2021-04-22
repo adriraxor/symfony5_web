@@ -5,7 +5,7 @@ body{
 }
 
 #navigation-bar{
-    background-color: #3a274e !important;
+    background-color: #3a274e;
 }
 
 .nav-link{
@@ -91,6 +91,15 @@ label {
     color: #000000;
     padding-top: 5px;
 }
+
+#user_logo_navbar {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
 
 /**
  * Surcharge bootstrap

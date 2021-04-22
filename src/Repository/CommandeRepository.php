@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Commande;
+use App\Entity\CommentaireProduit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * @method Commande|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +19,25 @@ class CommandeRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Commande::class);
+    }
+
+    /**
+     * @param $value
+     * @return int|mixed|string
+     * Cette méthode retourne tous les commentaires sur le produit sélectionner par l'utilisateur
+     */
+    public function findAllCommandsByUser($value){
+
+        //$value = 2;
+
+        $query = $this->createQueryBuilder('c')
+            ->andWhere('c.id_client = :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.date_commande', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $query;
     }
 
     // /**

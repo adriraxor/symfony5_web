@@ -12,7 +12,7 @@ body{
 }
 
 #navigation-bar{
-    background-color: #3a274e !important;
+    background-color: #3a274e;
 }
 
 input::placeholder{
@@ -48,7 +48,13 @@ a.btn:hover {
     transition: 0.5s;
 }
 
-
+#user_logo_navbar {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
 /**
  * Modification de chaque input un par un (Il n'est pas possible de directement modifier tous les inputs en mettant directement la balise input{ .... } car le design bootstrap prend le dessus avec ces classes "form-controls")
  */

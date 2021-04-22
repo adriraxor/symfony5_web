@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Entity\CommentaireProduit;
 use App\Repository\ClientRepository;
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,22 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class MonProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="mon_profil", methods={"GET","POST"})
+     * @Route("/profil/{id}", name="mon_profil", methods={"GET","POST"})
+     * @param Client $client
      * @param ClientRepository $clientRepository
      * @param CommandeRepository $commandeRepository
+     * @param Request $request
      * @return Response
      */
-    public function index(ClientRepository $clientRepository, CommandeRepository $commandeRepository): Response
+    public function index(Client $client, ClientRepository $clientRepository, CommandeRepository $commandeRepository, Request $request): Response
     {
 
         $client_em = $clientRepository->findAll();
-        $commande_em = $commandeRepository->findAll();
+
         $user = $this->getUser();
 
         return $this->render('mon_profil/index.html.twig', [
             'controller_name' => 'MonProfilController',
             'clients' => $client_em,
-            'commandes' => $commande_em,
+            'commandes' => $commandeRepository->findAllCommandsByUser($client),
             'users' => $user,
         ]);
     }

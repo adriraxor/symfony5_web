@@ -8,7 +8,7 @@ body{
     width: 110px;
 }
 #navigation-bar{
-    background-color: #3a274e !important;
+    background-color: #3a274e;
 }
 
 #navbar{
@@ -18,27 +18,72 @@ body{
 #avis_utilisateurs {
     background-color: #ffffff;
     color: #000000;
+    margin-top: 5%;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
 }
 
 .detailPrd_Image {
     margin-top: 100px;
     width: 18rem;
-    border: 2px solid black;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
 }
 
 .detailPrd_Description{
     margin-top: 100px;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
 }
 
 
 #filtre-prds{
-    background-color: cornflowerblue;
-    margin-top: 3%;
+    background-color: rebeccapurple;
+    margin-top: 10.2%;
 }
 
+.form-control:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#keyword {
+    border: none;
+    background-color: unset;
+    border-bottom: 1px solid black;
+    color: #8d8d8d;
+}
+
+#keyword:hover {
+    border: none;
+    background-color: unset;
+    border-bottom: 1px solid white;
+}
+
+#keyword:focus{
+    border-bottom: 1px solid white !important;
+    transition: 0.5s;
+    color: white;
+}
+
+#keyword::placeholder{
+    color: white;
+}
+
+#btn_filtre{
+    background-color: slateblue;
+    border-color: slateblue;
+}
+
+#btn_filtre:hover {
+    transition: 0.5s;
+    background-color: chartreuse;
+    color: black;
+}
 
 #liste-prds {
-    margin-top: 3.2%;
+    margin-top: 10.2%;
 }
 
 #tarif-prd {
@@ -75,7 +120,13 @@ body{
     -webkit-box-shadow: -8px 10px 5px 0px rgb(0 0 0 / 75%);
     -moz-box-shadow: -8px 10px 5px 0px rgba(0,0,0,0.75);
 }
-
+#user_logo_navbar {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
 
 /**
  * Surcharge bootstrap
@@ -105,5 +156,7 @@ a.btn:hover {
 form.filter {
     margin-top: 15%;
 }
+
+
 
 

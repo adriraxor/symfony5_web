@@ -78,12 +78,17 @@ class ProduitController extends AbstractController
      * @Route("/{idproduit}", name="produit_show", methods={"GET"})
      * @param Produit $produit
      * @param CommentaireProduitRepository $commentaireProduitRepository
+     * @param Request $request
      * @return Response
      */
-    public function show(Produit $produit, CommentaireProduitRepository $commentaireProduitRepository): Response
+    public function show(Produit $produit, CommentaireProduitRepository $commentaireProduitRepository, Request $request): Response
     {
+
+        $data = new CommentaireProduit();
+        $data->page = $request->get('page', 1);
+
         return $this->render('produit/show.html.twig', [
-            'commentaires' => $commentaireProduitRepository->findAllComment($produit), /* On affiche tous les commentaires pour le produit en question */
+            'commentaires' => $commentaireProduitRepository->findAllComment($data,$produit), /* On affiche tous les commentaires pour le produit en question */
             'produit' => $produit,
         ]);
     }

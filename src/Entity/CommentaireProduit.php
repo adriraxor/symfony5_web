@@ -12,6 +12,11 @@ use phpDocumentor\Reflection\Types\String_;
 class CommentaireProduit
 {
     /**
+     * @var int
+     */
+    public $page = 1;
+
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")

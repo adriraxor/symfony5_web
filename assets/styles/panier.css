@@ -7,13 +7,24 @@ body{
 }
 
 #navigation-bar{
-    background-color: #3a274e !important;
+    background-color: #3a274e;
 }
 
 .nav-link{
     width: 110px;
 }
 
+#user_logo_navbar {
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.container{
+    margin-top: 7%;
+}
 /**
     Effet sur les boutons
  */
@@ -30,4 +41,8 @@ a.btn:hover {
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,.5);
     transition: 0.5s;
+}
+
+.table td, .table th {
+    vertical-align: unset !important;
 }

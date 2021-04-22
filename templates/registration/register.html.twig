@@ -1,7 +1,7 @@
 {% extends 'registration.base.twig' %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-md navbar-dark" id="navigation-bar">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation-bar">
         <div class="d-flex w-50 order-0">
             <a class="navbar-brand mr-1" href="#">RaxorShop | PPE4</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
@@ -10,7 +10,7 @@
         </div>
         <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a></a>
                 </li>
                 <li class="nav-item">
@@ -27,7 +27,7 @@
                 {% if is_granted('ROLE_USER') %}
                     {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('mon_profil') }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
+                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
                         </li>
                     {% endif %}
                 {% endif %}
@@ -43,7 +43,9 @@
             </ul>
         </div>
         {% if app.user %}
-            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">Bonjour, {{ app.user.email }}</span>
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}" id="user_logo_navbar" style="">
+            </span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
         {% endif %}
@@ -110,6 +112,21 @@
 
     {% block javascripts %}
         <script>
+            window.onscroll = function() {scrollFunction()};
+
+            var navbar = document.getElementById("navigation-bar");
+            var selector_photoProfil = document.getElementById("registration_form_photoProfil");
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                    navbar.style.backgroundColor = "black";
+                    navbar.style.transition = "0.5s";
+                } else {
+                    navbar.style.backgroundColor = "#3a274e";
+                    navbar.style.transition = "0.5s";
+
+                }
+            }
                 function processSelected(fileInput) {
                     var files = fileInput.files;
                     var nomFichier = files[0].name
@@ -119,6 +136,18 @@
                 $.getJSON("countries-FR.json", function(json) {
                     console.log(json);
                 })
+            var logo_user = document.getElementById("user_logo_navbar");
+
+            logo_user.addEventListener("mouseover", function (){
+                logo_user.style.cursor = "pointer";
+                logo_user.style.transform = "rotate(360deg)";
+                logo_user.style.transition = "0.5s";
+            })
+
+            logo_user.addEventListener("mouseout", function (){
+                logo_user.style.transform = "rotate(-360deg)";
+                logo_user.style.transition = "0.5s";
+            })
         </script>
     {% endblock %}
 {% endblock %}

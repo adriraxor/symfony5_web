@@ -2,22 +2,22 @@
 
     {{ form_row(form.keyword) }}
 
-<div class="col-md-10">
-    <h4>Catégories</h4>
+<div class="col-md-10" style="color: pink">
+    <h4 style="color: white">Catégories</h4>
     {{ form_row(form.categories) }}
 </div>
 
         <div class="col-md-6">
-            <h4>Prix</h4>
-            <p>min : <span id="value-min"></span> €</p>
+            <h4 style="color: white">Prix</h4>
+            <p style="color: white">min : <span id="value-min" style="color: greenyellow"></span> €</p>
             {{ form_row(form.min_price) }}
         </div>
         <div class="col-md-6">
-            <p>max : <span id="value-max"></span> €</p>
+            <p style="color: white">max : <span id="value-max" style="color: indianred"></span> €</p>
             {{ form_row(form.max_price) }}
         </div>
 
-<button type="submit" class="btn btn-primary w-100">Filtrer</button>
+<button type="submit" class="btn btn-primary w-100" id="btn_filtre">Filtrer</button>
 {{ form_end(form) }}
 
 {% block javascripts %}

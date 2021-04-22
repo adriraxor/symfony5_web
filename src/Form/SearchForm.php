@@ -23,7 +23,8 @@ class SearchForm extends AbstractType
                 'label' =>false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Rechercher un produit'
+                    'placeholder' => 'Rechercher un produit',
+                    'autocomplete' => 'off',
                 ]
             ])
             ->add('categories', EntityType::class, [

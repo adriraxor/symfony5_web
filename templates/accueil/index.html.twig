@@ -3,7 +3,7 @@
 {% block title %}RaxorShop - Page d'accueil{% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-md navbar-dark" id="navigation-bar">
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation-bar">
         <div class="d-flex w-50 order-0">
             <a class="navbar-brand mr-1" href="#">RaxorShop | PPE4</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
@@ -16,12 +16,10 @@
                     <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad"
-                                                                               aria-hidden="true"></i>Produits</a>
+                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad" aria-hidden="true"></i>Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart"
-                                                                       aria-hidden="true"></i>Panier</a>
+                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -31,32 +29,29 @@
                 {% if is_granted('ROLE_USER') %}
                     {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('mon_profil') }}"><i class="fa fa-user"
-                                                                                   aria-hidden="true"></i>Compte</a>
+                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
                         </li>
                     {% endif %}
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"
-                                                                               aria-hidden="true"></i>Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in"
-                                                                               aria-hidden="true"></i>&nbsp;S'inscrire</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'inscrire</a>
                     </li>
                 {% endif %}
             </ul>
         </div>
         {% if app.user %}
-            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last"
-                  style="font-size: 15px">Bonjour, {{ app.user.email }}</span>
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email}}" id="user_logo_navbar">
+            </span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
         {% endif %}
     </nav>
-
     <div class="container" id="container-all">
         <div class="row">
             <div class="col">
@@ -66,10 +61,11 @@
                             <img id="img-carroussel" class="d-block w-100"
                                  src="{{ asset('../Images/Divers/RaxorShop.jpg') }}" alt="First slide">
                         </div>
-                        {% for produit_pop in produits_populaire_carroussel %}
+                        {% for produit_pop_car in produits_populaire_carroussel %}
                             <div class="carousel-item">
                                 <img id="img-carroussel" class="d-block w-100"
-                                     src="{{ asset('../Images/Produits/' ~ produit_pop.image) }}" alt="Second slide">
+                                     src="{{ asset('../Images/Produits/' ~ produit_pop_car.image) }}"
+                                     alt="Second slide">
                             </div>
                         {% endfor %}
                     </div>
@@ -109,7 +105,6 @@
         <div class="row" style="width: auto;">
             <div class="col" id="container-coming-soon">
                 <div class="grid">
-
                     {% for produit_soon in produits_soon %}
                         <div class="card" style="max-width: 300px; max-height: 300px">
                             <img class="card-img-top" src="{{ asset('../Images/Produits/' ~ produit_soon.image) }}"
@@ -145,9 +140,11 @@
                             <div class="card-img-overlay">
                                 {% if i < produit_pop %}
                                     {% if i == 1 %}
-                                        <h5 class="card-title"><span class="badge rounded-pill bandeau_prd" style="color: orange;">n°{{ i }}</span></h5>
+                                        <h5 class="card-title"><span class="badge rounded-pill bandeau_prd"
+                                                                     style="color: orange;">n°{{ i }}</span></h5>
                                     {% else %}
-                                        <h5 class="card-title"><span class="badge rounded-pill bandeau_prd">n°{{ i }}</span></h5>
+                                        <h5 class="card-title"><span
+                                                    class="badge rounded-pill bandeau_prd">n°{{ i }}</span></h5>
                                     {% endif %}
                                 {% endif %}
                             </div>
@@ -158,5 +155,34 @@
         </div>
     </div>
 
+    <script>
+        window.onscroll = function() {scrollFunction()};
 
+        var navbar = document.getElementById("navigation-bar");
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                navbar.style.backgroundColor = "black";
+                navbar.style.transition = "0.5s";
+            } else {
+                navbar.style.backgroundColor = "#3a274e";
+                navbar.style.transition = "0.5s";
+
+            }
+        }
+
+        var logo_user = document.getElementById("user_logo_navbar");
+
+        logo_user.addEventListener("mouseover", function (){
+            logo_user.style.cursor = "pointer";
+            logo_user.style.transform = "rotate(360deg)";
+            logo_user.style.transition = "0.5s";
+        })
+
+        logo_user.addEventListener("mouseout", function (){
+            logo_user.style.transform = "rotate(-360deg)";
+            logo_user.style.transition = "0.5s";
+        })
+
+    </script>
 {% endblock %}
