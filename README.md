@@ -1,6 +1,6 @@
 # Symfony5 | SourceCode | BTS SIO
 
-# In DEV... [Constant Update]
+Ce site WEB à été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
 
 ## 1. Contenu du projet 📑
 
