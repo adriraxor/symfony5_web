@@ -14,10 +14,12 @@
                     <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad" aria-hidden="true"></i>Produits</a>
+                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad"
+                                                                               aria-hidden="true"></i>Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>
+                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart"
+                                                                       aria-hidden="true"></i>Panier</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -27,24 +29,29 @@
                 {% if is_granted('ROLE_USER') %}
                     {% if app.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
+                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i
+                                        class="fa fa-user" aria-hidden="true"></i>Compte</a>
                         </li>
                     {% endif %}
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"
+                                                                               aria-hidden="true"></i>Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'inscrire</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in"
+                                                                               aria-hidden="true"></i>&nbsp;S'inscrire</a>
                     </li>
                 {% endif %}
             </ul>
         </div>
         {% if app.user %}
-            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
-                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}" id="user_logo_navbar" style="">
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last"
+                  style="font-size: 15px">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}"
+                     id="user_logo_navbar" style="">
             </span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
@@ -55,11 +62,11 @@
         <div class="row">
             <div class="col">
                 <div class="card detailPrd_Image">
-                    <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" class="card-img" alt="...">
+                    <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" class="card-img" style="height: 21vw">
                     <div class="card-img-overlay">
-                        <h5 class="card-title"><h1><span class="badge rounded-pill bg-warning text-dark"
-                                                         style="margin-top: 300px;">{{ produit.tarifProduit }} €</span>
-                            </h1></h5>
+                        <h5 class="card-title">
+                            <span class="badge rounded-pill" id="badge_bottom_prd">{{ produit.tarifProduit }} €</span>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -69,8 +76,30 @@
                     <div class="card-body">
                         <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-success">Ajouter au
                             panier</a>
-                        <br><br>
-
+                        <br>
+                        {% for note in notes %}
+                            {% if note.note_moyenne == 5.0 %}
+                                <span class="evaluation-moyenne" id="pallier5" style="color: forestgreen">5 / 5</span>
+                            {% elseif (note.note_moyenne == 4.0) %}
+                                <span class="evaluation-moyenne" id="pallier4" style="color: darkgreen">4 / 5</span>
+                            {% elseif (note.note_moyenne == 3.0) %}
+                                <span class="evaluation-moyenne" id="pallier3" style="color: #bac610">3 / 5</span>
+                            {% elseif (note.note_moyenne == 2.0) %}
+                                <span class="evaluation-moyenne" id="pallier2" style="color: darkorange">2 / 5</span>
+                            {% elseif (note.note_moyenne == 1.0) %}
+                                <span class="evaluation-moyenne" id="pallier1" style="color: red">1 / 5</span>
+                            {% elseif (note.note_moyenne == NULL) %}
+                                <p style="font-size: 25px">Pas encore évaluée</p></span>
+                            {% elseif (note.note_moyenne > 4) %}
+                                <span style="color: darkgreen">{{ note.note_moyenne }} / 5</span>
+                            {% elseif (note.note_moyenne > 3) %}
+                                <span style="color: #bac610">{{ note.note_moyenne }} / 5</span>
+                            {% elseif (note.note_moyenne > 2) %}
+                                <span style="color: darkorange">{{ note.note_moyenne }} / 5</span>
+                            {% elseif(note.note_moyenne > 1) %}
+                                <span style="color: red">{{ note.note_moyenne }} / 5</span>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <div class="card-footer text-muted">{{ produit.idCategorie }}</div>
                 </div>
@@ -82,6 +111,7 @@
                     <div class="card-header">Description</div>
                     <div class="card-body">
                         <p class="card-text">{{ produit.libelle }}</p>
+
                     </div>
                     <div class="card-footer text-muted">Jeu certifié</div>
                 </div>
@@ -101,17 +131,24 @@
                     <div class="error-message" id="error_msg"></div>
 
                     <div class="stars" style="font-size: 25px;">
-                        <i class="far fa-star star" data-value="1"></i><i class="far fa-star star" data-value="2"></i><i class="far fa-star star" data-value="3"></i><i class="far fa-star star" data-value="4"></i><i class="far fa-star star" data-value="5"></i>
+                        <i class="far fa-star star" data-value="1"></i><i class="far fa-star star" data-value="2"></i><i
+                                class="far fa-star star" data-value="3"></i><i class="far fa-star star"
+                                                                               data-value="4"></i><i
+                                class="far fa-star star" data-value="5"></i>
                     </div>
-                    <form name="commentaire_form" method="post" action="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}" onsubmit="return validateForm()">
+                    <form name="commentaire_form" method="post"
+                          action="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}"
+                          onsubmit="return validateForm()">
                         <input type="hidden" name="note_produit" id="note_produit">
-                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3" required></textarea>
+                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3"
+                                  required></textarea>
                         <br>
                         <input type="submit" class="btn btn-success" value="Soumettre" id="submit_commentaire">
                     </form>
                 </div>
                 {% else %}
-                    <label for="exampleFormControlTextarea1"><h5 style="color: lightgray">Ecrire un commentaire sur le produit</h5></label>
+                    <label for="exampleFormControlTextarea1"><h5 style="color: lightgray">Ecrire un commentaire sur le
+                            produit</h5></label>
                     <textarea class="form-control" id="commentaire_produit" name="commentaire_produit"
                               rows="3" placeholder="Vous devez être connecté pour écrire un commentaire"
                               disabled></textarea>
@@ -156,7 +193,9 @@
     </div>
     {% block javascripts %}
         <script>
-            window.onscroll = function() {scrollFunction()};
+            window.onscroll = function () {
+                scrollFunction()
+            };
 
             var navbar = document.getElementById("navigation-bar");
 
@@ -200,6 +239,7 @@
             window.onload = () => {
                 // On va chercher toutes les étoiles
                 const stars = document.querySelectorAll(".fa-star");
+
 
                 //On va chercher l'input caché
                 const note = document.querySelector("#note_produit");
@@ -255,13 +295,13 @@
             }
             var logo_user = document.getElementById("user_logo_navbar");
 
-            logo_user.addEventListener("mouseover", function (){
+            logo_user.addEventListener("mouseover", function () {
                 logo_user.style.cursor = "pointer";
                 logo_user.style.transform = "rotate(360deg)";
                 logo_user.style.transition = "0.5s";
             })
 
-            logo_user.addEventListener("mouseout", function (){
+            logo_user.addEventListener("mouseout", function () {
                 logo_user.style.transform = "rotate(-360deg)";
                 logo_user.style.transition = "0.5s";
             })

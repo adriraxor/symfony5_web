@@ -83,12 +83,20 @@ class ProduitController extends AbstractController
      */
     public function show(Produit $produit, CommentaireProduitRepository $commentaireProduitRepository, Request $request): Response
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $query_carroussel = 'select cast(avg(note_produit) as decimal(12,1)) AS note_moyenne from commentaire_produit cp join produit p on cp.Id_Produit = p.idProduit WHERE idProduit = '.$produit->getIdproduit().';';
+        $statement_carroussel = $em->getConnection()->prepare($query_carroussel);
+        $statement_carroussel->execute();
+        $result_carroussel = $statement_carroussel->fetchAll();
+
 
         $data = new CommentaireProduit();
         $data->page = $request->get('page', 1);
 
         return $this->render('produit/show.html.twig', [
             'commentaires' => $commentaireProduitRepository->findAllComment($data,$produit), /* On affiche tous les commentaires pour le produit en question */
+            'notes' => $result_carroussel,
             'produit' => $produit,
         ]);
     }

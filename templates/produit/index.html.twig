@@ -61,9 +61,9 @@
                 {% if produits | length > 0 %}
                 <div class="grid">
                     {% for produit in produits %}
-                        <div class="card" id="lePrd">
+                        <div class="card" id="lePrd" >
                             <img src="{{ asset('../Images/Produits/' ~ produit.image) }}" alt="{{ produit.nomProduit }}"
-                                 class="card-img-top" id="img_prd">
+                                 class="card-img-top" id="img_prd" style="height: 18vw">
                             <a href=" {{ path('produit_show', {'idproduit': produit.idproduit}) }}">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title" id="tarif-prd">{{ produit.tarifProduit }}€</h5>

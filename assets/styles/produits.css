@@ -128,6 +128,17 @@ body{
     width: 50px;
 }
 
+#badge_bottom_prd {
+    margin-top: 300px;
+    background-color: #8a2be2;
+    text-align: center;
+    text-shadow: 0 0 5px #18ff00;
+    color: white;
+    font-size: 40px;
+    border: 1px solid dodgerblue;
+    box-shadow: 0 0 5px #9ecaed;
+}
+
 /**
  * Surcharge bootstrap
  */

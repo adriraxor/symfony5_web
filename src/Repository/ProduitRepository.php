@@ -38,46 +38,7 @@ class ProduitRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    /**
-     * @return int|mixed|string
-     * Cette méthode retourne tous les produits pour l'API
-     */
-    public function findAllProductAPI(){
-        return $this->createQueryBuilder("p")
-            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
-            ->join("p.id_categorie", "c")
-            ->getQuery()
-            ->getResult();
-    }
 
-    /**
-     * @param $date
-     * @return int|mixed|string
-     * Cette méthode retourne tous les produits récents pour l'API
-     */
-    public function findAllRecentProductAPI($date){
-        return $this->createQueryBuilder("p")
-            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
-            ->join("p.id_categorie", "c")
-            ->where('p.dateApparition < \'' . $date . '\'')
-            ->orderBy('p.dateApparition', 'DESC')
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @return int|mixed|string
-     * Cette méthode retourne tous les produits récents pour l'API
-     */
-    public function findAllCommingSoonProductsAPI($date){
-        return $this->createQueryBuilder("p")
-            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
-            ->join("p.id_categorie", "c")
-            ->where('p.dateApparition > \'' . $date . '\'')
-            ->orderBy('p.dateApparition', 'DESC')
-            ->getQuery()
-            ->getResult();
-    }
 
 
     /**
@@ -103,7 +64,6 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
 
     /**
      * Récupère les produits en fonction d'une recherche
@@ -152,6 +112,77 @@ class ProduitRepository extends ServiceEntityRepository
             $search->page,
             10
         );
+    }
+
+    /**
+     * ***********************************************
+     * Toutes les fonctions qui appartiennent à l'API*
+     * ***********************************************
+     */
+
+
+    /**
+     * @return int|mixed|string
+     * Cette méthode retourne tous les produits pour l'API
+     */
+    public function findAllProductAPI(){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
+            ->join("p.id_categorie", "c")
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $dateVue
+     * @return int|mixed|string
+     * Cette méthode retourne tous les produits récents pour l'API
+     */
+    public function findAllRecentProductAPI($dateVue){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.dateApparition", "p.image")
+            ->join("p.id_categorie", "c")
+            ->where('p.dateApparition < \'' . $dateVue . '\'')
+            ->orderBy('p.dateApparition', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return int|mixed|string
+     * Cette méthode retourne tous les produits récents pour l'API
+     */
+    public function findAllCommingSoonProductsAPI($date){
+        return $this->createQueryBuilder("p")
+            ->select( "p.nomProduit", "p.libelle" ,"p.tarifProduit", "p.stock", "c.nomCategorie", "p.image", "p.dateApparition")
+            ->join("p.id_categorie", "c")
+            ->where('p.dateApparition > \'' . $date . '\'')
+            ->orderBy('p.dateApparition', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return int|mixed|string
+     * Cette méthode retourne le nombre de produit qui existe actuellement sur le site
+     */
+    public function findCountTotalProductsAPI()
+    {
+        return $this->createQueryBuilder("p")
+            ->select("count(p) AS Nombre_de_produit")
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return int|mixed|string
+     * Cette méthode retourne le montant total du stock (Permet de connaître la valeur total)
+     */
+    public function findValueStockAPI(){
+        return $this->createQueryBuilder("p")
+            ->select("sum(p.tarifProduit * p.stock) AS valeur_stock")
+            ->getQuery()
+            ->getResult();
     }
 
 
