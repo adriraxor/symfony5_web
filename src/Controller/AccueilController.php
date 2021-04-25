@@ -28,7 +28,7 @@ class AccueilController extends AbstractController
         $statement_carroussel = $em->getConnection()->prepare($query_carroussel);
 
 
-        $query_tendance = 'SELECT AVG(note_produit) AS Note_Jeu, image FROM commentaire_produit cp INNER JOIN produit p ON cp.id_produit = p.idProduit GROUP BY idProduit ORDER BY Note_Jeu DESC LIMIT 5;';
+        $query_tendance = 'SELECT AVG(note_produit) AS Note_Jeu, image, idProduit, nom_produit, tarif_produit, stock, libelle, date_apparition, Id_Categorie FROM commentaire_produit cp INNER JOIN produit p ON cp.id_produit = p.idProduit GROUP BY idProduit ORDER BY Note_Jeu DESC LIMIT 5;';
         $statement_tendance = $em->getConnection()->prepare($query_tendance);
 
 

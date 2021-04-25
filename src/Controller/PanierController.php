@@ -77,6 +77,9 @@ class PanierController extends AbstractController
 
     /**
      * @Route("/panier/remove/{id}", name="panier_remove")
+     * @param $id
+     * @param SessionInterface $session
+     * @return RedirectResponse
      */
     public function remove($id, SessionInterface $session)
     {
@@ -223,16 +226,7 @@ class PanierController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $statement = $em->getConnection()->prepare($RAW_QUERY);
             $statement->execute();
-
         }
-
-
-
-
-
-
-
-
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
@@ -247,8 +241,6 @@ class PanierController extends AbstractController
         $dompdf->stream("facture.pdf", [
             "Attachment" => true
         ]);
-
-
     }
 
 }

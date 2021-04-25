@@ -1,53 +1,30 @@
 {% extends 'panier.base.twig' %}
 
 {% block body %}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Navigation</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                        <a class="nav-link" href=" {{ path('accueil') }}">Page d'accueil</a>
-                                </li>
-                                <li class="nav-item">
-                                        <a class="nav-link" href=" {{ path('produit_index') }}">Voir les produits</a>
-                                </li>
-                                <li class="nav-item">
-                                        <a class="nav-link" href="{{ path('panier') }}">Mon panier</a>
-                                </li>
-                                {% if is_granted('ROLE_ADMIN') %}
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="">Espace administrateur</a>
-                                        </li>
-                                {% endif %}
-                                {% if is_granted('ROLE_AGENT') %}
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="">Espace agent</a>
-                                        </li>
-                                {% endif %}
-                                {% if is_granted('ROLE_USER') %}
-                                        {% if app.user %}
-                                                <li class="nav-item">
-                                                        <a class="nav-link" href="">Espace client</a>
-                                                </li>
-                                        {% endif %}
-                                {% endif %}
-                                {% if is_granted('ROLE_USER') %}
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
-                                        </li>
-                                {% else %}
-                                        <li class="nav-item">
-                                                <a class="nav-link" href=" {{ path('app_login') }}">Authentification</a>
-                                        </li>
-                                {% endif %}
-                        </ul>
-                </div>
-        </nav>
-        <h1>Merci d'avoir effectué votre achat : {{ user }}</h1>
+    {% if items | length > 0 %}
+        <h1>Voici votre facture n° {{ uuid }} </h1>
+        {% for item in items %}
+            <div class="container">
+                {{ item.produit.nomProduit }} &nbsp; |
+                {{ item.produit.libelle }} &nbsp; |
+                ({{ item.quantity }} &nbsp; *
+                {{ item.produit.tarifProduit }}€ &nbsp;) ->
+                {{ item.produit.tarifProduit * item.quantity }} €
+                <br>
+                <hr style="size: 1px;">
+            </div>
 
-        <h3>Votre achat à bien été effectué</h3>
+        {% endfor %}
+        <div class="info-client">
+            <h3>Information du client :</h3><br>
+            <p><b>Adresse email </b> : {{ user.email }}</p>
+            <p><b>Nom </b> : {{ user.nom}} </p>
+            <p><b>Prénom </b> : {{ user.prenom }}</p>
+            <p><b>Numéro de téléphone  </b>: {{ user.numTel }}</p>
+        </div>
+
+        <h1>Total de la facture : {{ total }} € (le {{ date }}</h1>
+    {% else %}
+        <h3>Votre panier est vide</h3>
+    {% endif %}
 {% endblock %}

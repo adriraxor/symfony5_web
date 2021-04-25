@@ -8,6 +8,7 @@ use App\Repository\ClientRepository;
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,13 +39,13 @@ class MonProfilController extends AbstractController
     }
 
     /**
-     * @Route("/profil/{id}", name="profil_update", methods={"GET","POST"})
+     * @Route("/update/{id}", name="profil_update", methods={"GET","POST"})
      * @param $id
      * @param EntityManagerInterface $em
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update($id, EntityManagerInterface $em, Request $request): Response
+    public function update($id, EntityManagerInterface $em, Request $request)
     {
         //Pour récupérer les valeurs d'un POST (important si l'on veut la valeur d'un textarea, d'un select ou autres...)
         $quest = $request->request->all();
@@ -62,6 +63,7 @@ class MonProfilController extends AbstractController
                 $em->flush();
             }
         }
-        return $this->redirectToRoute('mon_profil');
+        //On actualise notre page "mon_profil" en quelque sorte on va lorsque le traitement à été effectué précédemment redirigez vers la page "mon_profil" en passant comme paramètre l'ID du client connecté qui a effectué le changement de style couleur
+        return $this->redirectToRoute('mon_profil', array('id' => $id));
     }
 }

@@ -26,13 +26,6 @@
                     </li>
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
-                    {% if app.user %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
-                        </li>
-                    {% endif %}
-                {% endif %}
-                {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                     </li>
@@ -45,37 +38,34 @@
         </div>
         {% if app.user %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
-                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}" id="user_logo_navbar" style="">
+                 <a href="{{ path('mon_profil', {'id': app.user.id}) }}">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}"
+                     id="user_logo_navbar">
+                </a>
             </span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
         {% endif %}
     </nav>
 
+
+
     <div class="container" id="account_page">
         <div class="row">
             <div class="col">
                 {% if app.user %}
-                <div class="card user_logo_div" id="user_logo_div"
-                     style="background-color: {{ app.user.styleCouleurProfil }}">
-                    <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" class="card-img"
-                         alt="..." id="user_logo_img">
-                    <div class="card-img-overlay">
-
-                    </div>
+                <div class="card user_logo_div" id="user_logo_div" style="background-color: {{ app.user.styleCouleurProfil }}">
+                    <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" class="card-img" alt="..." id="user_logo_img">
                     <div class="row">
                         <div class="col">
                             <div class="card text-center account_details" id="user_details_div" style="background-color: {{ app.user.styleCouleurProfil }}">
-                                <div class="card-header">{{ app.user.pseudo }}  &nbsp;<span><i class="fas fa-pencil-alt" data-toggle="modal" data-target="#modifPseudo" id="edit_pseudo"></i></span></div>
-
+                                <div class="card-header">{{ app.user.pseudo }}</div>
                                 <div class="card-body">
                                     <h5 class="card-title"></h5>
                                     <div id="colorWell">
                                         <form method="post" action="{{ path('profil_update', {'id': app.user.id}) }}">
                                             <label for="colorWell">Couleur du profil :</label>
-
                                             <input type="color" id="colorWell" name="color_picker">
-
                                             <input type="submit" value="Sauvegarder" onclick="{{ path('profil_update', {'id': app.user.id}) }}">
                                         </form>
                                         <hr>
@@ -128,12 +118,10 @@
             </div>
         </div>
     </div>
-
     {% block javascripts %}
         <script>
 
             var colorWell;
-
             {% if app.user %}
             var defaultColor = '{{ app.user.styleCouleurProfil }}';
             {% else %}
@@ -174,7 +162,7 @@
 
             function scrollFunction() {
                 if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                    navbar.style.backgroundColor = "black";
+                    navbar.style.backgroundColor = "darkslateblue";
                     navbar.style.transition = "0.5s";
                 } else {
                     navbar.style.backgroundColor = "#3a274e";
@@ -195,6 +183,12 @@
                 logo_user.style.transform = "rotate(-360deg)";
                 logo_user.style.transition = "0.5s";
             })
+
+            $(document).ready(function (){
+               $('.alert').toast('show');
+            });
+
+
         </script>
     {% endblock %}
 {% endblock %}

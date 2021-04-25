@@ -34,5 +34,4 @@ class SearchData
      * @var null|integer
      */
     public $min_price;
-
 }

@@ -80,6 +80,11 @@ class Client implements UserInterface
      */
     private $country;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $point_client;
+
 
 
     public function __construct()
@@ -295,6 +300,18 @@ class Client implements UserInterface
     public function setCountry(?string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getPointClient(): ?int
+    {
+        return $this->point_client;
+    }
+
+    public function setPointClient(?int $point_client): self
+    {
+        $this->point_client = $point_client;
 
         return $this;
     }

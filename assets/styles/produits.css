@@ -38,7 +38,7 @@ body{
 
 
 #filtre-prds{
-    background-color: rebeccapurple;
+    background-color: darkslateblue;
     margin-top: 10.2%;
 }
 
@@ -137,6 +137,12 @@ body{
     font-size: 40px;
     border: 1px solid dodgerblue;
     box-shadow: 0 0 5px #9ecaed;
+}
+
+.pagination {
+    text-align: center;
+    justify-content: center;
+    margin-top: 2%;
 }
 
 /**

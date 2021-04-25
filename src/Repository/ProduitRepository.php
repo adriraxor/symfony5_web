@@ -79,8 +79,6 @@ class ProduitRepository extends ServiceEntityRepository
             ->select('c', 'p')
             ->join('p.id_categorie', 'c');
 
-
-
         if(!empty($search->keyword)){
             $query = $query
                 ->andWhere('p.nomProduit LIKE :keyword')
@@ -110,7 +108,7 @@ class ProduitRepository extends ServiceEntityRepository
         return $this->paginator->paginate(
             $query,
             $search->page,
-            10
+            9
         );
     }
 
@@ -119,8 +117,6 @@ class ProduitRepository extends ServiceEntityRepository
      * Toutes les fonctions qui appartiennent à l'API*
      * ***********************************************
      */
-
-
     /**
      * @return int|mixed|string
      * Cette méthode retourne tous les produits pour l'API

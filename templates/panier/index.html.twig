@@ -25,13 +25,6 @@
                     </li>
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
-                    {% if app.user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('mon_profil', {'id': app.user.id}) }}"><i class="fa fa-user" aria-hidden="true"></i>Compte</a>
-                        </li>
-                    {% endif %}
-                {% endif %}
-                {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                     </li>
@@ -44,7 +37,10 @@
         </div>
         {% if app.user %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
-                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}" id="user_logo_navbar" style="">
+                 <a href="{{ path('mon_profil', {'id': app.user.id}) }}">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}"
+                     id="user_logo_navbar">
+                </a>
             </span>
         {% else %}
             <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
@@ -121,7 +117,6 @@
                     return actions.order.capture().then(function(details) {
 
                         window.location.href = "{{ path('panier_checkout', {'id': app.user.id}) }}";
-
                         //alert('La transaction à bien été effectué ' + details.payer.name.given_name);
                     });
                 }
@@ -130,13 +125,23 @@
             document.getElementById("paiement_paypal").innerHTML = "<p style='color: red'>Vous devez être connecté ou inscrit pour pouvoir effectués des paiements</p>";
             {% endif %}
 
+
+
+
+
+
+
+
+
+
+
             window.onscroll = function() {scrollFunction()};
 
             var navbar = document.getElementById("navigation-bar");
 
             function scrollFunction() {
                 if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                    navbar.style.backgroundColor = "black";
+                    navbar.style.backgroundColor = "darkslateblue";
                     navbar.style.transition = "0.5s";
                 } else {
                     navbar.style.backgroundColor = "#3a274e";

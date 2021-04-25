@@ -8,6 +8,7 @@ use App\Data\SearchData;
 use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +21,7 @@ class SearchForm extends AbstractType
     {
         $builder
             ->add('keyword', TextType::class, [
-                'label' =>false,
+                'label' => false,
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Rechercher un produit',
@@ -51,8 +52,7 @@ class SearchForm extends AbstractType
                     'max' => 100,
                     'value' => 100,
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
