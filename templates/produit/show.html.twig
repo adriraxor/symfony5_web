@@ -65,48 +65,67 @@
             </div>
             <div class="col">
                 <div class="card text-center detailPrd_Description">
-                    <div class="card-header">{{ produit.nomProduit }}</div>
-                    <div class="card-body">
-                        <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-success">Ajouter au
-                            panier</a>
-                        <br>
+                    <div class="card-header cardHeaderNoBs">{{ produit.nomProduit }}</div>
+                    <div class="card-body cardBodyNoBs">
+                        <a href="{{ path('panier_add', {id: produit.idproduit}) }}" class="btn btn-success">Ajouter au panier</a>
+                        <br><br>
+                        <h4>Evaluation :<br>
                         {% for note in notes %}
                             {% if note.note_moyenne == 5.0 %}
-                                <span class="evaluation-moyenne" id="pallier5" style="color: forestgreen">5 / 5</span>
-                            {% elseif (note.note_moyenne == 4.0) %}
-                                <span class="evaluation-moyenne" id="pallier4" style="color: darkgreen">4 / 5</span>
-                            {% elseif (note.note_moyenne == 3.0) %}
-                                <span class="evaluation-moyenne" id="pallier3" style="color: #bac610">3 / 5</span>
+                                <span class="evaluation-excellent" id="pallier5" style="color: forestgreen">5 / 5</span>
+                                <br>
+                                <div class="evaluation-com">Excellent produit</div>
+                                {% elseif (note.note_moyenne == 4.0) %}
+                                <span class="evaluation-trs-bon" id="pallier4" style="color: darkgreen">4 / 5</span>
+                                <br>
+                                <div class="evaluation-com">Très bon produit</div>
+                                {% elseif (note.note_moyenne == 3.0) %}
+                                <span class="evaluation-bon" id="pallier3" style="color: #bac610">3 / 5</span>
+                                <br>
+                                <div class="evaluation-com"><h5>Bon produit</h5></div>
                             {% elseif (note.note_moyenne == 2.0) %}
-                                <span class="evaluation-moyenne" id="pallier2" style="color: darkorange">2 / 5</span>
+                                <span class="evaluation-moyen" id="pallier2" style="color: darkorange">2 / 5</span>
+                                <br>
+                                <div class="evaluation-com">Produit moyen</div>
                             {% elseif (note.note_moyenne == 1.0) %}
-                                <span class="evaluation-moyenne" id="pallier1" style="color: red">1 / 5</span>
+                                <span class="evaluation-mauvais" id="pallier1" style="color: red">1 / 5</span>
+                                <br>
+                                <div class="evaluation-com">Mauvais produit</div>
                             {% elseif (note.note_moyenne == NULL) %}
                                 <p style="font-size: 25px">Pas encore évaluée</p></span>
                             {% elseif (note.note_moyenne > 4) %}
                                 <span style="color: darkgreen">{{ note.note_moyenne }} / 5</span>
+                                <br>
+                                <div class="evaluation-com">Excellent produit</div>
                             {% elseif (note.note_moyenne > 3) %}
                                 <span style="color: #bac610">{{ note.note_moyenne }} / 5</span>
+                                <br>
+                                <div class="evaluation-com">Très bon produit</div>
                             {% elseif (note.note_moyenne > 2) %}
                                 <span style="color: darkorange">{{ note.note_moyenne }} / 5</span>
+                                <br>
+                                <div class="evaluation-com">Produit moyen</div>
                             {% elseif(note.note_moyenne > 1) %}
                                 <span style="color: red">{{ note.note_moyenne }} / 5</span>
+                                <br>
+                                <div class="evaluation-com">Mauvais produit</div>
                             {% endif %}
                         {% endfor %}
+                        </h4>
+                        </p>
                     </div>
-                    <div class="card-footer text-muted">{{ produit.idCategorie }}</div>
+                    <div class="card-footer text-muted cardFooterNoBs">{{ produit.idCategorie }}</div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <div class="card text-center detailPrd_Description">
-                    <div class="card-header">Description</div>
-                    <div class="card-body">
+                    <div class="card-header cardHeaderNoBs">Description</div>
+                    <div class="card-body cardBodyNoBs">
                         <p class="card-text">{{ produit.libelle }}</p>
-
                     </div>
-                    <div class="card-footer text-muted">Jeu certifié</div>
+                    <div class="card-footer text-muted cardFooterNoBs">Jeu certifié</div>
                 </div>
             </div>
         </div>
@@ -124,17 +143,13 @@
                     <div class="error-message" id="error_msg"></div>
 
                     <div class="stars" style="font-size: 25px;">
-                        <i class="far fa-star star" data-value="1"></i><i class="far fa-star star" data-value="2"></i><i
-                                class="far fa-star star" data-value="3"></i><i class="far fa-star star"
-                                                                               data-value="4"></i><i
-                                class="far fa-star star" data-value="5"></i>
+                        <i class="far fa-star star" data-value="1"></i><i class="far fa-star star" data-value="2"></i><i class="far fa-star star" data-value="3"></i><i class="far fa-star star" data-value="4"></i><i class="far fa-star star" data-value="5"></i>
                     </div>
                     <form name="commentaire_form" method="post"
                           action="{{ path('produit_comment', {'idproduit': produit.idproduit}) }}"
                           onsubmit="return validateForm()">
                         <input type="hidden" name="note_produit" id="note_produit">
-                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3"
-                                  required></textarea>
+                        <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3" required></textarea>
                         <br>
                         <input type="submit" class="btn btn-success" value="Soumettre" id="submit_commentaire">
                     </form>
@@ -142,14 +157,12 @@
                 {% else %}
                     <label for="exampleFormControlTextarea1"><h5 style="color: lightgray">Ecrire un commentaire sur le
                             produit</h5></label>
-                    <textarea class="form-control" id="commentaire_produit" name="commentaire_produit"
-                              rows="3" placeholder="Vous devez être connecté pour écrire un commentaire"
-                              disabled></textarea>
+                    <textarea class="form-control" id="commentaire_produit" name="commentaire_produit" rows="3" placeholder="Vous devez être connecté pour écrire un commentaire" disabled></textarea>
                     <input class="btn btn-danger btn" value="Soumettre le commentaire" disabled>
                 {% endif %}
                 {% if commentaires | length > 0 %}
                     <table class="table table-striped table-dark" id="avis_utilisateurs">
-                        <thead>
+                        <thead style="background-color: dodgerblue;">
                         <tr>
                             <th scope="col">Pseudo</th>
                             <th scope="col">Message</th>
@@ -157,7 +170,7 @@
                             <th scope="col">Note Produit</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="background-color: slateblue">
                         {% for commentaire in commentaires %}
                             <tr>
                                 <td>{{ commentaire.idClient }}</td>

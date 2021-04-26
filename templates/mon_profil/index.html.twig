@@ -65,7 +65,9 @@
                                     <div id="colorWell">
                                         <form method="post" action="{{ path('profil_update', {'id': app.user.id}) }}">
                                             <label for="colorWell">Couleur du profil :</label>
-                                            <input type="color" id="colorWell" name="color_picker">
+                                            <br>
+                                            <input type="color" id="colorWell" class="colorWell" name="color_picker" value="{{ app.user.styleCouleurProfil }}">
+                                            <br>
                                             <input type="submit" value="Sauvegarder" onclick="{{ path('profil_update', {'id': app.user.id}) }}">
                                         </form>
                                         <hr>

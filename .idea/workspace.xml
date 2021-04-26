@@ -19,27 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Fix responsive on product&#10;- Fix all same height &amp; width image for all products&#10;- Add 5 functions for API android&#10;- Show rating AVG for all product with correct color (Green -&gt; very good // Red -&gt; bad)&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Optimization&#10;- Patch user profile bug when change color&#10;- Paypal bug patch&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/produits.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/produits.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccueilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MonProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MonProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/SearchData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SearchForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accueil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/profil.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profil.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/panier/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/produit/_filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/_filter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +237,8 @@
       <workItem from="1619245835742" duration="3944000" />
       <workItem from="1619262080126" duration="9993000" />
       <workItem from="1619337843022" duration="7421000" />
-      <workItem from="1619345339477" duration="10000" />
+      <workItem from="1619345339477" duration="150000" />
+      <workItem from="1619444603043" duration="3409000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -359,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619267572155</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Optimization&#10;- Patch user profile bug when change color&#10;- Paypal bug patch&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+      <created>1619345475353</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619345475353</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +385,8 @@
     <MESSAGE value="Commit#2 || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Patch bad query (For search 3 recents products) on homepage.&#10;- Add TOP 5 all products with very good AVG rating&#10;- Create VIEW on database for take all AVG rating by products&#10;- Patch &quot;DateTime to String error&quot; for HomePage&#10;- Update all sql query (Optimisation)  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Fix problem with javascript code and carousel bootstrap &#10;- Fix list of &quot;recents commands&quot; on &quot;my account view&quot;&#10;- Add favicon for all URL&#10;- minor design change and update&#10;- Patch minor bug with products list&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Fix responsive on product&#10;- Fix all same height &amp; width image for all products&#10;- Add 5 functions for API android&#10;- Show rating AVG for all product with correct color (Green -&gt; very good // Red -&gt; bad)&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit || Major update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Fix responsive on product&#10;- Fix all same height &amp; width image for all products&#10;- Add 5 functions for API android&#10;- Show rating AVG for all product with correct color (Green -&gt; very good // Red -&gt; bad)&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <MESSAGE value="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Optimization&#10;- Patch user profile bug when change color&#10;- Paypal bug patch&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Optimization&#10;- Patch user profile bug when change color&#10;- Paypal bug patch&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="218" key="#Inspections" timestamp="1618325526156">
@@ -457,10 +451,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618405285945" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1619267576965">
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1619345478667">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619267576965" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619345478667" />
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617900389842" />
     <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619341702006">
       <screen x="0" y="0" width="1920" height="1080" />

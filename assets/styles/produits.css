@@ -145,11 +145,39 @@ body{
     margin-top: 2%;
 }
 
+.cardBodyNoBs {
+    background-color: slateblue;;
+    color: white;
+}
+
+.cardHeaderNoBs {
+    color: white;
+    background-color: dodgerblue;
+}
+
+.cardFooterNoBs{
+    color: white;
+    background-color: dodgerblue;
+}
+
+.evaluation-com{
+    opacity: 0.5;
+    color: lightblue;
+}
+
+#commentaire_produit {
+    background-color: slateblue;
+}
+
+#commentaire_produit:focus {
+    border: 1px solid darkorange !important;
+}
+
 /**
  * Surcharge bootstrap
  */
 a.btn:hover {
-    transition: 0.8s;
+    transition: 0.5s;
     filter: drop-shadow(3px 5px 7px black);
 }
 
@@ -161,7 +189,6 @@ a.btn:hover {
     color: rgba(255,255,255,.5);
     transition: 0.5s;
 }
-
 
  .grid{
      display: grid;

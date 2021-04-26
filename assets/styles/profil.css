@@ -17,6 +17,25 @@ body{
     height: 50px;
     width: 50px;
 }
+
+.colorWell{
+    border-radius: 100px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.colorWell::-webkit-color-swatch-wrapper{
+    padding: 0;
+}
+
+.colorWell::-webkit-color-swatch {
+    border: none;
+    border-radius: 100%;
+}
+
 /**
     Effet sur les boutons
  */
