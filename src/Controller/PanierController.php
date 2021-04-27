@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Commande;
 use App\Entity\Creer;
 use App\Entity\Facture;
@@ -10,6 +11,7 @@ use App\Entity\Panier;
 use App\Entity\Produit;
 use App\Entity\Vente;
 use App\Repository\CategorieRepository;
+use App\Repository\FactureRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -108,7 +110,6 @@ class PanierController extends AbstractController
             unset($panier[$id]);
         }
 
-
         $session->set('panier', $panier);
 
         return $this->redirectToRoute("panier");
@@ -133,20 +134,22 @@ class PanierController extends AbstractController
     }
 
     /**
-     * @Route("/checkout/{id}", name="panier_checkout")
-     * @param SessionInterface $session
+     * @Route("/traitementAchat/{id}", name="panier_traitement_achat")
+     * @param $id
      * @param ProduitRepository $produitRepository
-     * @return string
+     * @param SessionInterface $session
+     * @return Response
      */
-    public function checkout(SessionInterface $session, ProduitRepository $produitRepository): string
-    {
-
-        $uuid = Uuid::v4();
-        $date = new \DateTime();
+    public function traitementAchat($id, ProduitRepository $produitRepository, SessionInterface $session): Response{
 
         $user = $this->getUser();
+        $date = new \DateTime();
+        $uuid = Uuid::v4();
+
+        $dateVue = date_format($date, 'd-m-Y H:i');
 
         $panier = $session->get('panier', []);
+
         $panierAvecProduits = [];
 
         foreach ($panier as $id => $quantity) {
@@ -170,10 +173,9 @@ class PanierController extends AbstractController
         // Instantiate Dompdf with our options
         $dompdf = new Dompdf($pdfOptions);
 
-        $dateVue = date_format($date, 'd-m-Y H:i');
 
         // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('panier/checkout.html.twig', [
+        $html = $this->renderView('panier/facturepdf.html.twig', [
             'title' => "Facture achat",
             'items' => $panierAvecProduits,
             'uuid'=> $uuid,
@@ -182,6 +184,17 @@ class PanierController extends AbstractController
             'date'=>$dateVue,
         ]);
 
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+
+        //Traitement SQL
         $facture = new Facture();
         $facture->setNumeroFacture($uuid);
         $facture->setMontantFacture($total);
@@ -221,12 +234,109 @@ class PanierController extends AbstractController
             $sql->persist($ligneCommande);
             $sql->flush();
 
+            //On récupère le montant de point ("Fidélité") actuel que possède le client
+            $point = $user->getPointClient();
+            $user->setPointClient($point = $point + $total * 2); //On met à jour le nouveau montant de point du client en se basant sur le montant de point avant achat
+
+            $sql = $this->getDoctrine()->getManager();
+            $sql->persist($user);
+            $sql->flush();
+
             $RAW_QUERY = 'UPDATE produit SET stock = stock - 1 WHERE nom_produit = "'.$unPrd['produit'].'"';
 
             $em = $this->getDoctrine()->getManager();
             $statement = $em->getConnection()->prepare($RAW_QUERY);
             $statement->execute();
         }
+
+        //On redirige vers la page de confirmation d'achat
+        return $this->redirectToRoute('panier_success');
+    }
+
+    /**
+     * @Route("/successbuy", name="panier_success")
+     * @param ProduitRepository $produitRepository
+     * @param SessionInterface $session
+     * @return Response
+     */
+    public function success(ProduitRepository $produitRepository, SessionInterface $session){
+
+        $user = $this->getUser();
+
+        $panier = $session->get('panier', []);
+        $panierAvecProduits = [];
+
+        foreach ($panier as $id => $quantity) {
+            $panierAvecProduits[] = [
+                'produit' => $produitRepository->find($id),
+                'quantity' => $quantity
+            ];
+        }
+
+        $total = 0;
+
+        foreach ($panierAvecProduits as $item) {
+            $totalItem = $item['produit']->getTarifProduit() * $item['quantity'];
+            $total += $totalItem;
+        }
+
+
+
+        return $this->render('panier/successbuy.html.twig', [
+            'title' => "Facture achat",
+            'client'=>$user
+        ]);
+    }
+
+    /**
+     * @Route("/facture/{id}", name="panier_facture")
+     * @param SessionInterface $session
+     * @param ProduitRepository $produitRepository
+     * @return string
+     */
+    public function facture(SessionInterface $session, ProduitRepository $produitRepository): string
+    {
+
+        $user = $this->getUser();
+
+        $uuid = Uuid::v4();
+        $date = new \DateTime();
+
+        $panier = $session->get('panier', []);
+        $panierAvecProduits = [];
+
+        foreach ($panier as $id => $quantity) {
+            $panierAvecProduits[] = [
+                'produit' => $produitRepository->find($id),
+                'quantity' => $quantity
+            ];
+        }
+
+        $total = 0;
+
+        foreach ($panierAvecProduits as $item) {
+            $totalItem = $item['produit']->getTarifProduit() * $item['quantity'];
+            $total += $totalItem;
+        }
+
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        $dateVue = date_format($date, 'd-m-Y H:i');
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('panier/facturepdf.html.twig', [
+            'title' => "Facture achat",
+            'items' => $panierAvecProduits,
+            'uuid'=> $uuid,
+            'user'=>$user,
+            'total' => $total,
+            'date'=>$dateVue,
+        ]);
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
@@ -236,11 +346,20 @@ class PanierController extends AbstractController
 
         // Render the HTML as PDF
         $dompdf->render();
-
         // Output the generated PDF to Browser (force download)
         $dompdf->stream("facture.pdf", [
             "Attachment" => true
         ]);
+
+        //On viens remettre le panier à 0 produit après la fin de tous le traitement précédent (L'Achat)
+        $panier = $session->get('panier', []);
+
+        if (!empty($panier[$id])) {
+            unset($panier[$id]);
+        }
+        $session->set('panier', $panier);
+        $this->redirectToRoute('accueil');
+
     }
 
 }

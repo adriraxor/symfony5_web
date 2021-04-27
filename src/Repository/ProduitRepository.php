@@ -39,8 +39,6 @@ class ProduitRepository extends ServiceEntityRepository
     }
 
 
-
-
     /**
      * @param $date
      * @return int|mixed|string
@@ -48,19 +46,9 @@ class ProduitRepository extends ServiceEntityRepository
      */
     public function findAllComingSoonProduct($date)
     {
-        return $this->createQueryBuilder("p")
+        return $this->createQueryBuilder('p')
             ->setMaxResults(9)
             ->where('p.dateApparition > \'' . $date . '\'')
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @return int|mixed|string
-     * Cette méthode retourne tous les produits
-     */
-    public function findAllProducts(){
-        return $this->createQueryBuilder("p")
             ->getQuery()
             ->getResult();
     }
@@ -76,6 +64,7 @@ class ProduitRepository extends ServiceEntityRepository
         $query = $this
             ->createQueryBuilder('p')
             ->where('p.dateApparition < \'' . $date . '\'')
+            ->andWhere('p.stock > 0')
             ->select('c', 'p')
             ->join('p.id_categorie', 'c');
 

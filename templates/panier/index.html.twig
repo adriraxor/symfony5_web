@@ -115,8 +115,7 @@
                 },
                 onApprove: function(data, actions) {
                     return actions.order.capture().then(function(details) {
-
-                        window.location.href = "{{ path('panier_checkout', {'id': app.user.id}) }}";
+                        window.location.href = "{{ path('panier_traitement_achat', {'id': app.user.id}) }}";
                         //alert('La transaction à bien été effectué ' + details.payer.name.given_name);
                     });
                 }
@@ -124,16 +123,6 @@
             {% else %}
             document.getElementById("paiement_paypal").innerHTML = "<p style='color: red'>Vous devez être connecté ou inscrit pour pouvoir effectués des paiements</p>";
             {% endif %}
-
-
-
-
-
-
-
-
-
-
 
             window.onscroll = function() {scrollFunction()};
 

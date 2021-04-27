@@ -73,7 +73,6 @@ class ProduitCrudController extends AbstractCrudController
             NumberField::new('tarif_produit'), // Config du champ tarif
             NumberField::new('stock'), //Config du champ stock
             TextField::new('libelle'), //Config du champ libelle
-            NumberField::new('popularite'), //Config du champ popularite (Temporaire)
             DateTimeField::new('date_apparition'), //Config du champ date
             AssociationField::new('id_categorie'), //Config de l'association avec la catégorie
         ];

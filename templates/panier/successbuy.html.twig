@@ -1,30 +1,64 @@
 {% extends 'panier.base.twig' %}
 
 {% block body %}
-    {% if items | length > 0 %}
-        <h1>Voici votre facture n° {{ uuid }} </h1>
-        {% for item in items %}
-            <div class="container">
-                {{ item.produit.nomProduit }} &nbsp; |
-                {{ item.produit.libelle }} &nbsp; |
-                ({{ item.quantity }} &nbsp; *
-                {{ item.produit.tarifProduit }}€ &nbsp;) ->
-                {{ item.produit.tarifProduit * item.quantity }} €
-                <br>
-                <hr style="size: 1px;">
-            </div>
-
-        {% endfor %}
-        <div class="info-client">
-            <h3>Information du client :</h3><br>
-            <p><b>Adresse email </b> : {{ user.email }}</p>
-            <p><b>Nom </b> : {{ user.nom}} </p>
-            <p><b>Prénom </b> : {{ user.prenom }}</p>
-            <p><b>Numéro de téléphone  </b>: {{ user.numTel }}</p>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation-bar">
+        <div class="d-flex w-50 order-0">
+            <a class="navbar-brand mr-1" href="#">RaxorShop | PPE4</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
+        <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true" disabled=""></i>Accueil</a></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad" aria-hidden="true" disabled=""></i>Produits</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart" aria-hidden="true" disabled=""></i>Panier</a>
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('admin') }}"><i class="fa fa-lock" aria-hidden="true" disabled=""></i>Admin</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true" disabled=""></i>Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true" disabled=""></i>&nbsp;S'inscrire</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% if app.user %}
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
+                 <a href="{{ path('mon_profil', {'id': app.user.id}) }}">
+                <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}"
+                     id="user_logo_navbar">
+                </a>
+            </span>
+        {% else %}
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">Vous êtes pas connecté !</span>
+        {% endif %}
+    </nav>
 
-        <h1>Total de la facture : {{ total }} € (le {{ date }}</h1>
-    {% else %}
-        <h3>Votre panier est vide</h3>
-    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-6">
+                <h1>Votre achat à bien été effectué</h1>
+                <h4><i>Nous vous remercions pour votre confiance</i></h4>
+                <p>Téléchargez votre facture pour pouvoir revenir à l'accueil :</p>
+                <form name="download_facture_form" method="post" action="{{ path('panier_facture', {'id': client.id}) }}">
+                    <input type="submit" class="btn btn-danger" value="Télécharger la facture .PDF" id="download_facture">
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
 {% endblock %}

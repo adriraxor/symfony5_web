@@ -42,6 +42,20 @@ class Facture
      */
     private $facturePdf;
 
+    /**
+     * @var string
+     */
+    private $readPdf;
+
+    public function readPdf()
+    {
+        if(null === $this->readPdf) {
+            $this->readPdf = "data:application/pdf;base64," . base64_encode(stream_get_contents($this->getFacturePdf()));
+        }
+
+        return $this->readPdf;
+    }
+
     public function getIdFacture(): ?int
     {
         return $this->idFacture;

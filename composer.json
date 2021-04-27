@@ -7,6 +7,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "cocur/slugify": "^4.0",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
@@ -24,6 +25,7 @@
         "sensio/framework-extra-bundle": "^5.1",
         "stevenmaguire/oauth2-microsoft": "^2.2",
         "stripe/stripe-php": "^7.76",
+        "swiftmailer/swiftmailer": "^6.0",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",
@@ -45,6 +47,7 @@
         "symfony/security-bundle": "5.2.*",
         "symfony/serializer": "5.2.*",
         "symfony/string": "5.2.*",
+        "symfony/swiftmailer-bundle": "^3.5",
         "symfony/translation": "5.2.*",
         "symfony/twig-bundle": "^5.2",
         "symfony/uid": "5.2.*",
@@ -56,8 +59,7 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
         "vich/uploader-bundle": "^1.17",
-        "wohali/oauth2-discord-new": "^1.1",
-        "ext-json": "*"
+        "wohali/oauth2-discord-new": "^1.1"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
