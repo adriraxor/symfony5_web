@@ -32,7 +32,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'inscrire</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'authentifier</a>
                     </li>
                 {% endif %}
             </ul>
@@ -102,8 +102,7 @@
                             <img class="card-img-top" src="{{ asset('../Images/Produits/' ~ produit_soon.image) }}"
                                  alt="Card image cap" style="max-width: 300px; max-height: 300px">
                             <div class="card-img-overlay overlay">
-                                <h5 class="card-title"><span
-                                            class="badge rounded-pill bandeau_prd">{{ produit_soon.dateApparition | date('d-m-Y') }}</span>
+                                <h5 class="card-title"><span class="badge rounded-pill bandeau_prd">{{ produit_soon.dateApparition | date('d-m-Y') }}</span>
                                 </h5>
                             </div>
                         </div>

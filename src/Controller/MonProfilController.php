@@ -25,15 +25,21 @@ class MonProfilController extends AbstractController
      */
     public function index(Client $client, ClientRepository $clientRepository, CommandeRepository $commandeRepository, Request $request): Response
     {
-
         $client_em = $clientRepository->findAll();
-
         $user = $this->getUser();
+
+        $em = $this->getDoctrine()->getManager();
+
+        $query = 'SELECT image, nom_produit, qte, tarif_produit, date_commande, montant_total FROM ligne_commande lc INNER JOIN commande c ON lc.Id_Commande = c.id INNER JOIN produit p ON lc.Id_Produit = p.idProduit INNER JOIN client cl ON c.id_client_id = cl.id WHERE cl.id = '.$client->getId().' LIMIT 9;';
+        $statement_query = $em->getConnection()->prepare($query);
+
+        $statement_query->execute();
+        $result_query = $statement_query->fetchAll();
 
         return $this->render('mon_profil/index.html.twig', [
             'controller_name' => 'MonProfilController',
             'clients' => $client_em,
-            'commandes' => $commandeRepository->findAllCommandsByUser($client),
+            'commandes' => $result_query,
             'users' => $user,
         ]);
     }

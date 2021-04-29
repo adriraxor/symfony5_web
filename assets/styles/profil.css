@@ -36,6 +36,17 @@ body{
     border-radius: 100%;
 }
 
+.pointStyle{
+    background-color: darkorange;
+    border-radius: 50px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
 /**
     Effet sur les boutons
  */
@@ -51,10 +62,7 @@ a.btn:hover {
 .card.user_logo_div {
     max-height: 300px;
     max-width: 350px;
-    border-top: 1px solid dodgerblue;
-    border-left: 1px solid dodgerblue;
-    border-right: 1px solid dodgerblue;
-    box-shadow: 0 0 5px #9ecaed;
+    background-color: dimgray;
 }
 
 #edit_pseudo:hover{
@@ -70,10 +78,8 @@ a.btn:hover {
 }
 
 .account_details{
-    border-left: 1px solid dodgerblue;
-    border-right: 1px solid dodgerblue;
-    border-bottom: 1px solid dodgerblue;
-    box-shadow: 0 0 10px #9ecaed;
+    background-color: dimgray;
+    color: black;
 }
 
 .nav-link:hover {

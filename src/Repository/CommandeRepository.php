@@ -20,30 +20,10 @@ class CommandeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Commande::class);
     }
-
-    /**
-     * @param $value
-     * @return int|mixed|string
-     * Cette méthode retourne tous les commentaires sur le produit sélectionner par l'utilisateur
-     */
-    public function findAllCommandsByUser($value){
-
-        //$value = 2;
-
-        $query = $this->createQueryBuilder('c')
-            ->andWhere('c.id_client = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.date_commande', 'DESC')
-            ->getQuery()
-            ->getResult();
-
-        return $query;
-    }
-
     // /**
     //  * @return Commande[] Returns an array of Commande objects
     //  */
-    /*
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('c')
@@ -55,7 +35,7 @@ class CommandeRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Commande

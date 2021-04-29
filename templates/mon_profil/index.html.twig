@@ -1,6 +1,5 @@
 {% extends 'mon_profil.base.twig' %}
 
-
 {% block body %}
     <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation-bar">
         <div class="d-flex w-50 order-0">
@@ -15,10 +14,12 @@
                     <a class="nav-link" href=" {{ path('accueil') }}"><i class="fa fa-home" aria-hidden="true"></i>Accueil</a></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad" aria-hidden="true"></i>Produits</a>
+                    <a class="nav-link" href=" {{ path('produit_index') }}"><i class="fa fa-gamepad"
+                                                                               aria-hidden="true"></i>Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>
+                    <a class="nav-link" href="{{ path('panier') }}"><i class="fa fa-shopping-cart"
+                                                                       aria-hidden="true"></i>Panier</a>
                 </li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -27,17 +28,20 @@
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"
+                                                                               aria-hidden="true"></i>Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;S'inscrire</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in"
+                                                                               aria-hidden="true"></i>&nbsp;S'authentifier</a>
                     </li>
                 {% endif %}
             </ul>
         </div>
         {% if app.user %}
-            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last" style="font-size: 15px">
+            <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last"
+                  style="font-size: 15px">
                  <a href="{{ path('mon_profil', {'id': app.user.id}) }}">
                 <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" title="{{ app.user.email }}"
                      id="user_logo_navbar">
@@ -54,21 +58,27 @@
         <div class="row">
             <div class="col">
                 {% if app.user %}
-                <div class="card user_logo_div" id="user_logo_div" style="background-color: {{ app.user.styleCouleurProfil }}">
-                    <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" class="card-img" alt="..." id="user_logo_img">
+                <div class="card user_logo_div" id="user_logo_div"
+                     style="box-shadow: -1px -4px 21px 0px {{ app.user.styleCouleurProfil }}; border-right: 1px solid {{ app.user.styleCouleurProfil }}; border-left:1px solid {{ app.user.styleCouleurProfil }}; border-top: 1px solid {{ app.user.styleCouleurProfil }}">
+                    <img src="{{ asset('../Images/Clients/Photos/' ~ app.user.photoProfil) }}" class="card-img"
+                         alt="..." id="user_logo_img">
                     <div class="row">
                         <div class="col">
-                            <div class="card text-center account_details" id="user_details_div" style="background-color: {{ app.user.styleCouleurProfil }}">
-                                <div class="card-header">{{ app.user.pseudo }}</div>
+                            <div class="card text-center account_details" id="user_details_div"
+                                 style="box-shadow: -1px -4px 21px 0px {{ app.user.styleCouleurProfil }}; border-right: 1px solid {{ app.user.styleCouleurProfil }}; border-left:1px solid {{ app.user.styleCouleurProfil }}; border-bottom: 1px solid {{ app.user.styleCouleurProfil }};">
+                                <div class="card-header">{{ app.user.pseudo }}<p class="card-text pointStyle">
+                                        <i>Points:</i><b>  {{ app.user.pointClient }}</b></p></div>
                                 <div class="card-body">
                                     <h5 class="card-title"></h5>
                                     <div id="colorWell">
                                         <form method="post" action="{{ path('profil_update', {'id': app.user.id}) }}">
                                             <label for="colorWell">Couleur du profil :</label>
                                             <br>
-                                            <input type="color" id="colorWell" class="colorWell" name="color_picker" value="{{ app.user.styleCouleurProfil }}">
+                                            <input type="color" id="colorWell" class="colorWell" name="color_picker"
+                                                   value="{{ app.user.styleCouleurProfil }}">
                                             <br>
-                                            <input type="submit" value="Sauvegarder" onclick="{{ path('profil_update', {'id': app.user.id}) }}">
+                                            <input type="submit" value="Sauvegarder"
+                                                   onclick="{{ path('profil_update', {'id': app.user.id}) }}">
                                         </form>
                                         <hr>
                                     </div>
@@ -86,43 +96,36 @@
             </div>
             {% endif %}
             <div class="col">
-                <div class="container" id="detail_commands_user">
+                <div class="container">
                     <div class="row">
-                        {% if app.user %}
                         <div class="col">
-                            <h3 style="border-bottom: 1px solid">Récentes commandes</h3>
-                            {% if commandes | length > 0 %}
-                            <table class="table table-striped table-dark" id="recent_commands">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Date de la commande</th>
-                                    <th scope="col">Montant total de la commande</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <div style="color: white">
+                                <h1>Vos 10 dernières commandes</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width: auto;">
+                        <div class="col" id="container-coming-soon">
+                            <div class="grid">
                                 {% for commande in commandes %}
-                                    <tr>
-                                        <td>{{ commande.id }}</td>
-                                        <td>{{ commande.dateCommande }}</td>
-                                        <td>{{ commande.montantTotal }}</td>
-                                    </tr>
+                                    <div class="card" style="max-width: 200px; max-height: 300px">
+                                        <img class="card-img-top" src="{{ asset('../Images/Produits/' ~ commande.image) }}" data-toggle="modal"alt="Card image cap" style="max-width: 200px; max-height: 200px">
+                                        <div class="card-img-overlay overlay">
+                                            <h5 class="card-title"><span class="badge rounded-pill bandeau_prd"></span>
+                                            </h5>
+                                        </div>
+                                    </div>
                                 {% endfor %}
-                                {% else %}
-                                    <h1>Vous n'avez effectué aucun achat pour le moment </h1>
-                                {% endif %}
-                                {% endif %}
-                                </tbody>
-                            </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-    {% block javascripts %}
-        <script>
 
+        <script>
             var colorWell;
             {% if app.user %}
             var defaultColor = '{{ app.user.styleCouleurProfil }}';
@@ -141,24 +144,42 @@
                 var div = document.getElementById("user_logo_div");
                 var div2 = document.getElementById("user_details_div");
                 if (div && div2) {
-                    div.style.backgroundColor = event.target.value;
-                    div2.style.backgroundColor = event.target.value;
+                    /* div.style.backgroundColor = event.target.value;
+                     div2.style.backgroundColor = event.target.value;*/
+                    div.style.borderTop = "1px solid" + event.target.value;
+                    div.style.borderLeft = "1px solid" + event.target.value;
+                    div.style.borderRight = "1px solid" + event.target.value;
+                    div.style.boxShadow = "-1px -4px 21px 0px " + event.target.value;
+                    div2.style.borderBottom = "1px solid" + event.target.value;
+                    div2.style.borderLeft = "1px solid" + event.target.value;
+                    div2.style.borderRight = "1px solid" + event.target.value;
+                    div2.style.boxShadow = "-1px -4px 21px 0px " + event.target.value;
                 }
             }
 
             function updateAll(event) {
                 document.getElementById("user_logo_div").forEach(function (div) {
-                    div.style.backgroundColor = event.target.value;
+                    //div.style.backgroundColor = event.target.value;
+                    div.style.borderRight = "1px solid" + event.target.value;
+                    div.style.borderTop = "1px solid" + event.target.value;
+                    div.style.borderLeft = "1px solid" + event.target.value;
+                    div.style.boxShadow = "-1px -4px 21px 0px" + event.target.value;
                 });
 
                 document.getElementById("user_details_div").forEach(function (div2) {
-                    div2.style.backgroundColor = event.target.value;
+                    //div2.style.backgroundColor = event.target.value;
+                    div2.style.borderBottom = "1px solid" + event.target.value;
+                    div2.style.borderLeft = "1px solid" + event.target.value;
+                    div2.style.borderRight = "1px solid" + event.target.value;
+                    div2.style.boxShadow = "-1px -4px 21px 0px " + event.target.value;
                 });
             }
 
             window.addEventListener("load", startup, false);
 
-            window.onscroll = function() {scrollFunction()};
+            window.onscroll = function () {
+                scrollFunction()
+            };
 
             var navbar = document.getElementById("navigation-bar");
 
@@ -175,22 +196,21 @@
 
             var logo_user = document.getElementById("user_logo_navbar");
 
-            logo_user.addEventListener("mouseover", function (){
+            logo_user.addEventListener("mouseover", function () {
                 logo_user.style.cursor = "pointer";
                 logo_user.style.transform = "rotate(360deg)";
                 logo_user.style.transition = "0.5s";
             })
 
-            logo_user.addEventListener("mouseout", function (){
+            logo_user.addEventListener("mouseout", function () {
                 logo_user.style.transform = "rotate(-360deg)";
                 logo_user.style.transition = "0.5s";
             })
 
-            $(document).ready(function (){
-               $('.alert').toast('show');
+            $(document).ready(function () {
+                $('.alert').toast('show');
             });
 
 
         </script>
-    {% endblock %}
 {% endblock %}

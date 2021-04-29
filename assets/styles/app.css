@@ -80,7 +80,7 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 8px;
+    grid-gap: 15px;
 }
 
 .bandeau_prd {
