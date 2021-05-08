@@ -2,6 +2,8 @@
 
 Ce site WEB à été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
 
+**Créateur :** Adrien F*****S 
+
 ## 1. Contenu du projet 📑
 
  **1. Beaucoup de modules, bundles, et framework  (NodesJS, Webpack, Yarn et plein d'autres...)**
