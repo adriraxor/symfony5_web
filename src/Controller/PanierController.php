@@ -6,6 +6,7 @@ use App\Entity\Client;
 use App\Entity\Commande;
 use App\Entity\Creer;
 use App\Entity\Facture;
+use App\Entity\Inclure;
 use App\Entity\LigneCommande;
 use App\Entity\Panier;
 use App\Entity\Produit;
@@ -52,6 +53,8 @@ class PanierController extends AbstractController
             $totalItem = $item['produit']->getTarifProduit() * $item['quantity'];
             $total += $totalItem;
         }
+
+
 
         return $this->render('panier/index.html.twig', [
             'items' => $panierAvecProduits,
@@ -214,16 +217,16 @@ class PanierController extends AbstractController
         $sql->persist($commande);
         $sql->flush();
 
+        $panier = new Panier();
+
+
         foreach ($panierAvecProduits as $unPrd){
-            $panier = new Panier();
             $panier->setQte($unPrd['quantity']);
-            $panier->setIdProduit($unPrd['produit']);
             $panier->setIdClient($user);
 
             $sql = $this->getDoctrine()->getManager();
             $sql->persist($panier);
             $sql->flush();
-
             $ligneCommande = new LigneCommande();
             $ligneCommande->setIdProduit($unPrd['produit']);
             $ligneCommande->setIdCommande($commande);
@@ -247,6 +250,14 @@ class PanierController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $statement = $em->getConnection()->prepare($RAW_QUERY);
             $statement->execute();
+
+            $inclure_relation = new Inclure();
+            $inclure_relation->setIdProduit($unPrd['produit']);
+            $inclure_relation->setIdPanier($panier);
+
+            $sql = $this->getDoctrine()->getManager();
+            $sql->persist($inclure_relation);
+            $sql->flush();
         }
 
         //On redirige vers la page de confirmation d'achat

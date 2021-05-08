@@ -28,12 +28,6 @@ class Panier
     private $id_client;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Produit::class)
-     * @ORM\JoinColumn(name="Id_Produit", referencedColumnName="idProduit", onDelete="CASCADE")
-     */
-    private $id_produit;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $qte;
@@ -51,18 +45,6 @@ class Panier
     public function setIdClient(?Client $id_client): self
     {
         $this->id_client = $id_client;
-
-        return $this;
-    }
-
-    public function getIdProduit(): ?Produit
-    {
-        return $this->id_produit;
-    }
-
-    public function setIdProduit(?Produit $id_produit): self
-    {
-        $this->id_produit = $id_produit;
 
         return $this;
     }

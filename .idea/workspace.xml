@@ -19,21 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Big update on paiement&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Big update on paiement &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/profil.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/profil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MonProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MonProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Panier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClientRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/CommandeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LigneCommandeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LigneCommandeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accueil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mon_profil.base.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil.base.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/panier/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,17 +189,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\ppe4-confinement2\Images\Divers" />
+      <recent name="F:\ppe4-confinement2\src\Data" />
+      <recent name="F:\ppe4-confinement2\templates\registration" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\ppe4-confinement2\templates\panier" />
       <recent name="F:\ppe4-confinement2\Images\Divers" />
       <recent name="F:\ppe4-confinement2\src\EventListener" />
       <recent name="F:\ppe4-confinement2\src\Validator" />
       <recent name="F:\ppe4-confinement2\src\Security" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\ppe4-confinement2\Images\Divers" />
-      <recent name="F:\ppe4-confinement2\src\Data" />
-      <recent name="F:\ppe4-confinement2\templates\registration" />
     </key>
   </component>
   <component name="RunManager">
@@ -250,7 +243,11 @@
       <workItem from="1619444603043" duration="3516000" />
       <workItem from="1619522545568" duration="13792000" />
       <workItem from="1619537032012" duration="1074000" />
-      <workItem from="1619678995926" duration="7448000" />
+      <workItem from="1619678995926" duration="8123000" />
+      <workItem from="1619694904207" duration="3913000" />
+      <workItem from="1619961039313" duration="13000" />
+      <workItem from="1620449974942" duration="3709000" />
+      <workItem from="1620457431104" duration="4463000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -378,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619535605102</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
+      <created>1619686562345</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1619686562345</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +418,8 @@
     <MESSAGE value="Commit || Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;- Optimization&#10;- Patch user profile bug when change color&#10;- Paypal bug patch&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Design Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Minor design change (Profile, Details Products)&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Big update on paiement&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Big update on paiement &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit || Big update on paiement&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Big update on paiement &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <MESSAGE value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="218" key="#Inspections" timestamp="1618325526156">
@@ -425,10 +430,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="198" key="#JSON_Schema_Mappings/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618325462302" />
-    <state x="491" y="281" width="848" height="678" key="#SSH_Configurations" timestamp="1619679283154">
+    <state x="491" y="281" width="848" height="678" key="#SSH_Configurations" timestamp="1620452191944">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="491" y="281" width="848" height="678" key="#SSH_Configurations/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619679283154" />
+    <state x="491" y="281" width="848" height="678" key="#SSH_Configurations/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620452191944" />
     <state x="558" y="202" key="#SSH_Configurations/0.0.1920.1080@0.0.1920.1080" timestamp="1617863856554" />
     <state x="285" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1617889394239">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -447,10 +452,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="620" y="456" key="ComposerInitDialogKey/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618212583499" />
-    <state x="170" y="133" width="1566" height="754" key="DirDiffDialog" timestamp="1619532530123">
+    <state x="170" y="133" width="1566" height="754" key="DirDiffDialog" timestamp="1620464575371">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="170" y="133" width="1566" height="754" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619532530123" />
+    <state x="170" y="133" width="1566" height="754" key="DirDiffDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620464575371" />
     <state x="50" y="147" width="889" height="754" key="DirDiffDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617883870576" />
     <state x="762" y="298" key="FileChooserDialogImpl" timestamp="1617800857576">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -470,29 +475,29 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="744" y="246" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617870681550" />
-    <state x="483" y="202" key="SettingsEditor" timestamp="1619679283821">
+    <state x="483" y="202" key="SettingsEditor" timestamp="1620452192604">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619679283821" />
+    <state x="483" y="202" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620452192604" />
     <state x="483" y="202" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1617863857713" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1618405285945">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1619700071490">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1618405285945" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1619535623716">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619700071490" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1619686572153">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619535623716" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619686572153" />
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617900389842" />
-    <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619341702006">
+    <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620468396271">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619341702006" />
+    <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620468396271" />
     <state x="93" y="100" width="1487" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1617870697799" />
-    <state x="99" y="211" width="585" height="592" key="find.popup" timestamp="1619264967325">
+    <state x="99" y="211" width="585" height="592" key="find.popup" timestamp="1620466970064">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="99" y="211" width="585" height="592" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619264967325" />
+    <state x="99" y="211" width="585" height="592" key="find.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620466970064" />
     <state x="99" y="211" width="585" height="592" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1617867221342" />
     <state x="783" y="463" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1617722800624">
       <screen x="0" y="0" width="1920" height="1080" />

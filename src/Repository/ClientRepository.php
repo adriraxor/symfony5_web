@@ -59,4 +59,14 @@ class ClientRepository extends ServiceEntityRepository implements PasswordUpgrad
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @return int|mixed|string
+     */
+    public function findClientAPI(){
+        return $this->createQueryBuilder('c')
+            ->select('c.email', 'c.password')
+            ->getQuery()
+            ->getResult();
+    }
 }

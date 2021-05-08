@@ -20,17 +20,13 @@ class CommandeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Commande::class);
     }
-    // /**
-    //  * @return Commande[] Returns an array of Commande objects
-    //  */
-
-    public function findByExampleField($value)
+    /**
+     * @return int|mixed|string
+     */
+    public function findNbClientCommandeAPI()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('COUNT(DISTINCT c.id_client) AS NbClientCommande')
             ->getQuery()
             ->getResult()
         ;
