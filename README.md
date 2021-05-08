@@ -2,7 +2,10 @@
 
 Ce site WEB à été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
 
+**Vous pouvez desormais voir la documentation ici : https://github.com/adriraxor/symfony5_web/blob/main/Documentation/PPE4%20-%20Documentation.pdf**
+
 **Créateur :** Adrien F*****S 
+
 
 ## 1. Contenu du projet 📑
 
