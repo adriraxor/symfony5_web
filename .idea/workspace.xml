@@ -19,14 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ...">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="97e1df4b-dcba-4da7-b513-1cc0aa494c7e" name="Default Changelist" comment="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- No update just push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PanierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Panier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ClientRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClientRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommandeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommandeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accueil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mon_profil/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panier/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panier/successbuy.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produit/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,17 +190,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\ppe4-confinement2\Images\Divers" />
-      <recent name="F:\ppe4-confinement2\src\Data" />
-      <recent name="F:\ppe4-confinement2\templates\registration" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\ppe4-confinement2\templates\panier" />
       <recent name="F:\ppe4-confinement2\Images\Divers" />
       <recent name="F:\ppe4-confinement2\src\EventListener" />
       <recent name="F:\ppe4-confinement2\src\Validator" />
       <recent name="F:\ppe4-confinement2\src\Security" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\ppe4-confinement2\Images\Divers" />
+      <recent name="F:\ppe4-confinement2\src\Data" />
+      <recent name="F:\ppe4-confinement2\templates\registration" />
     </key>
   </component>
   <component name="RunManager">
@@ -247,7 +248,10 @@
       <workItem from="1619694904207" duration="3913000" />
       <workItem from="1619961039313" duration="13000" />
       <workItem from="1620449974942" duration="3709000" />
-      <workItem from="1620457431104" duration="4463000" />
+      <workItem from="1620457431104" duration="5153000" />
+      <workItem from="1620471896418" duration="3693000" />
+      <workItem from="1620972899835" duration="641000" />
+      <workItem from="1620973587055" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="Commit#1 || Transfert Code">
       <created>1617722834577</created>
@@ -382,7 +386,21 @@
       <option name="project" value="LOCAL" />
       <updated>1619686562345</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- DataBase big update">
+      <created>1620468429911</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620468429911</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- No update just push">
+      <created>1620468487745</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620468487745</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +437,9 @@
     <MESSAGE value="Commit || Design Update&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Minor design change (Profile, Details Products)&#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Big update on paiement&#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Big update on paiement &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
     <MESSAGE value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- Account view design and functionnality update&#10;- Fix javascript error  &#10;&#10;############################&#10;#       Future update      #&#10;############################&#10;&#10;-&gt; Increase more esthetic&#10;-&gt; Add real home page&#10;-&gt; And more ..." />
+    <MESSAGE value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- DataBase big update" />
+    <MESSAGE value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- No update just push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit || Update &#10;&#10;############################&#10;#      Changes Log         #&#10;############################&#10;&#10;- No update just push" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="218" key="#Inspections" timestamp="1618325526156">
@@ -484,10 +504,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619700071490" />
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1619686572153">
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2" timestamp="1620468491077">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1619686572153" />
+    <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1620468491077" />
     <state x="407" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1617900389842" />
     <state x="11" y="98" width="1869" height="887" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620468396271">
       <screen x="0" y="0" width="1920" height="1080" />

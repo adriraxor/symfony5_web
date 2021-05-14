@@ -28,13 +28,11 @@
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out"
-                                                                               aria-hidden="true"></i>Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in"
-                                                                               aria-hidden="true"></i>&nbsp;S'authentifier</a>
+                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
                     </li>
                 {% endif %}
             </ul>
