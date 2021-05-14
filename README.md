@@ -1,4 +1,5 @@
 # symfony5_web
 This branches contains only the MySQL database 
 
-**bts-app.sql*** ==> Script SQL for database !
+**Database folder** ==> Script SQL for database !
+**Documentation folder** ==> PDF for documentation detailed of the website and API
