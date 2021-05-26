@@ -98,7 +98,6 @@
 
 
     </div>
-    {% block javascripts %}
         <script src="https://www.paypal.com/sdk/js?client-id=test"></script> <!--On importe le sdk paypal-->
         <script>
             {% if app.user %}
@@ -151,5 +150,4 @@
                 logo_user.style.transition = "0.5s";
             })
         </script>
-        {% endblock %}
 {% endblock %}

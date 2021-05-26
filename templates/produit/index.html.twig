@@ -31,7 +31,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href=" {{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
+                        <a class="nav-link" href="{{ path('app_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
                     </li>
                 {% endif %}
             </ul>
@@ -80,7 +80,6 @@
             </div>
         </div>
     </div>
-    {% block javascripts %}
         <script>
             window.onscroll = function () {
                 scrollFunction()
@@ -111,5 +110,4 @@
                 logo_user.style.transition = "0.5s";
             })
         </script>
-    {% endblock %}
 {% endblock %}
