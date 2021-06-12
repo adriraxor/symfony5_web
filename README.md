@@ -1,6 +1,6 @@
 # Symfony5 | SourceCode | BTS SIO
 
-Ce site WEB à été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
+Ce site WEB a été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
 
 **Vous pouvez desormais voir la documentation ici : https://github.com/adriraxor/symfony5_web/blob/main/Documentation/PPE4%20-%20Documentation.pdf**
 
