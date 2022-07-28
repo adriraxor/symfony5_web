@@ -1,24 +1,30 @@
-# Symfony5 | SourceCode | BTS SIO
+# Symfony5.4 | SourceCode | BTS SIO
 
-Ce site WEB a été développé à partir d'un serveur Docker sous debian9 sur une machine virtuelle (VMWare) 
+Ce site WEB a été développé sur un environnement virtuelle (VM) Docker sous debian9 
 
-**Vous pouvez desormais voir la documentation ici : https://github.com/adriraxor/symfony5_web/blob/main/Documentation/PPE4%20-%20Documentation.pdf**
+La machine docker contient : 
+- apache (php-7.4)
+- MYSQL (5.7)
+- PHPmyAdmin
+ 
+**Documentation ici : https://github.com/adriraxor/symfony5_web/blob/main/Documentation/PPE4%20-%20Documentation.pdf**
 
-**Créateur :** Adrien F*****S 
-
+**Créateur :** Adrien FIGUERESS 
 
 ## 1. Contenu du projet 📑
 
- **1. Beaucoup de modules, bundles, et framework  (NodesJS, Webpack, Yarn et plein d'autres...)**
- 
- ![Node Js icon](https://img.icons8.com/windows/2x/node-js.png)![Webpack icon](https://img.icons8.com/dusk/2x/webpack.png)![Symfony icon](https://img.icons8.com/color/2x/symfony.png)![Yarn Logo icon](https://img.icons8.com/windows/2x/yarn-logo.png)![NPM icon](https://img.icons8.com/color/2x/npm.png)
- 
-![L'outil de recrutement qui vous facilite la vie - Twig Talent](https://www.twigtalent.com/wp-content/uploads/2019/02/logo-twig-large@2x.png)
+**1. Utilisation de modules, bundles, et framework  (NodesJS, Webpack, Yarn, easyAdmin ...)**
  
 **2. Base de données pré-configurer**
 
-**3. Liste de produits (Ajout récent, tous les produits en stock)** 
+**3. Liste de produits (Ajout récent, produits en stock, produits en précommande)** 
 
 **4. Panier fonctionnel (Avec intégration de l'API Paypal)**
 
-**5. Authentification sécurisé symfony (Password Hash, Rôles Hierarchy...)** 
+**5. Authentification sécurisé symfony (Password Hash, Rôles Hierarchy)** 
+
+**6. Gestion des erreurs HTTP (code 404, 200 etc...) **
+
+
+COPYRIGHT* 
+Réutilisation et modification autorisé sous condition de citer le créateur du code source. 
