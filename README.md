@@ -2,6 +2,9 @@
 
 Ce site WEB a été développé sur un environnement virtuelle (VM) Docker sous debian9 
 
+Site web créé à l'occasion de la formation en BTS Système Informatique aux Organisations option SLAM. 
+@Formation @Apprentissage
+
 La machine docker contient : 
 - apache (php-7.4)
 - MYSQL (5.7)
